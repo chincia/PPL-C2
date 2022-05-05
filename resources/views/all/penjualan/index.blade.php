@@ -92,19 +92,21 @@
                 <li class="text-center text-2xl mb-2 py-1">Barang</li>
             </a>
             <a href="/penjualan">
-                <li class="text-center text-2xl bg-[#ca0000]  mb-2 py-1">Penjualan</li>
+                <li class="text-center  bg-[#ca0000] text-2xl mb-2 py-1">Penjualan</li>
             </a>
+            @if(Auth::user()->role_id == 1)
             <a href="/keuangan">
                 <li class="text-center text-2xl mb-2 py-1">Keuangan</li>
             </a>
-
+            @endif
         </ul>
         <ul class="text-white px-2 absolute w-full bottom-2">
             <a href="/logout">
                 <li class="text-center text-2xl mb-2 py-1">Logout</li>
             </a>
         </ul>
-    </div>    <div id="grid4" class="px-10 py-8">
+    </div>
+    <div id="grid4" class="px-10 py-8">
         <h1 class="text-center text-3xl mb-8">DATA PENJUALAN</h1>
         <table class="table-auto w-full bg-white">
             <thead>

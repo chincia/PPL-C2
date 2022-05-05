@@ -94,9 +94,11 @@
             <a href="/penjualan">
                 <li class="text-center text-2xl mb-2 py-1">Penjualan</li>
             </a>
+            @if(Auth::user()->role_id == 1)
             <a href="/keuangan">
                 <li class="text-center text-2xl mb-2 py-1">Keuangan</li>
             </a>
+            @endif
 
         </ul>
         <ul class="text-white px-2 absolute w-full bottom-2">
@@ -106,8 +108,59 @@
         </ul>
     </div>
     <div id="grid4" class="px-10 py-8">
-        <h1 class="text-4xl font-medium">SELAMAT DATANG,<br>ADMIN!</h1><br><br>
-        <h3 style="color:blue" class="text-4xl font-medium">Total Keuntungan = Rp{{number_format($pendapatan)}}</h3>
+        <h1 class="text-4xl font-medium text-center" style="color:red">SELAMAT DATANG, ADMIN!</h1><br><br>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-2 gap-4">
+            <div class="w-[30rem] bg-white p-3 rounded-lg">
+                <p style="font-size:20px;" class="text-center"><b>Mini Rekap Keuangan</b></p><br>
+                <p style="font-size:12px;" class="text-left"><b>Mini Rekap Keuangan terbaru</b></p>
+                <table class="table-auto w-full bg-white">
+                    <thead>
+                        <tr>
+                            <th class="border border-black px-2 py-0">No</th>
+                            <th class="border border-black px-2 py-0">Keterangan</th>
+                            <th class="border border-black px-2 py-0">Transaksi</th>
+                            <th class="border border-black px-2 py-0">Total</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @php
+                        $no = 1;
+                        @endphp
+                        @foreach($rekap as $rkp)
+                        <tr>
+                            <td class="border border-black px-2 py-0">{{$no++}}</td>
+                            <td class="border border-black px-2 py-0">{{$rkp->keterangan}}</td>
+                            <td class="border border-black px-2 py-0">{{$rkp->transaksi}}</td>
+                            <td class="border border-black px-2 py-0">Rp{{number_format($rkp->total_transaksi)}}</td>
+                        </tr>
+                        @endforeach
+                    </tbody>
+                </table>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-2 gap-2">
+                    <div></div>
+                    <div class="ml-10">
+                        <a href="/keuangan" class="text-white mt-2 px-2 rounded bg-[#ca0000] font-bold">Lihat selengkapnya</a>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <div class="w-[30rem] bg-white p-3 rounded-lg">
+                    <p style="font-size:20px;" class="text-center"><b>Catatan Keuangan</b></p>
+                    <p style="font-size:12px;" class="text-center">Detail data aset keuangan</p><br>
+                    <p style="font-size:14px;" class="text-left"><b>Keseluruhan Debit:</b> <span style="color:blue;">Rp{{number_format($debit)}}</span></p>
+                    <p style="font-size:14px;" class="text-left"><b>Keseluruhan Kredit:</b> <span style="color:red">Rp{{number_format($kredit)}}</span></p>
+                    <p style="font-size:20px;" class="text-right"><b>Saldo:</b>
+                        @if($pendapatan < 0) 
+                        <span style="color:red">Rp{{number_format($pendapatan)}}</span>
+                        @endif
+                        @if($pendapatan > 0)
+                        <span style="color:blue">Rp{{number_format($pendapatan)}}</span>
+                        @endif
+                    </p>
+                    <p style="font-size:12px;" class="text-center">Lihat keseluruhan detail keuangan <a href="/keuangan"><u><i><b>Disini!</b></i></u></a></p>
+                </div>
+            </div>
+        </div>
     </div>
 </body>
 

@@ -94,9 +94,11 @@
             <a href="/penjualan">
                 <li class="text-center text-2xl mb-2 py-1">Penjualan</li>
             </a>
+            @if(Auth::user()->role_id == 1)
             <a href="/keuangan">
                 <li class="text-center text-2xl mb-2 py-1">Keuangan</li>
             </a>
+            @endif
         </ul>
         <ul class="text-white px-2 absolute w-full bottom-2">
             <a href="/logout">
@@ -105,7 +107,7 @@
         </ul>
     </div>
     <div id="grid4" class="px-10 py-8">
-        <h1 class="text-center text-3xl mb-8">DATA KARYAWAN</h1>
+        <h1 class="text-center text-3xl mb-8">DATA ADMIN</h1>
         <table class="table-auto w-full bg-white">
             <thead>
                 <tr>
@@ -128,7 +130,7 @@
                     <td class="border border-black px-2 py-0">{{$dt->no_hp}}</td>
                     <td class="border border-black px-2 py-0">{{$dt->email}}</td>
                     <td class="border border-black px-2 py-0">{{$dt->tanggal_lahir}}</td>
-                    @if($dt->id == Auth::user()->id)
+                    @if($dt->user_id == Auth::user()->id)
                     <td class="border border-black px-2 py-0">
                         <a href="/admin/detail/{{$dt->id}}" class="text-white px-2 rounded-full bg-[#ca0000] font-bold">Detail</a>
                         <a href="/admin/edit/{{$dt->id}}" class="text-white px-2 rounded-full bg-[#ca0000] font-bold">Ubah</a>
@@ -138,7 +140,7 @@
                 @endforeach
             </tbody>
         </table>
-        <a href="#" class="bg-[#ca0000] px-10 rounded-full text-white text-xl absolute left-1/2 -translate-x-1/2 bottom-4">Tambah</a>
+        <a href="/admin/create" class="bg-[#ca0000] px-10 rounded-full text-white text-xl absolute left-1/2 -translate-x-1/2 bottom-4">Tambah</a>
     </div>
 </body>
 

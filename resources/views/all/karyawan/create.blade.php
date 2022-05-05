@@ -63,12 +63,12 @@
         <ul class="text-white mt-4 px-2">
             @if(Auth::user()->role_id == 1)
             <a href="/admin/dashboard">
-                <li class="text-center text-2xl bg-[#ca0000] mb-2 py-1">Dashboard</li>
+                <li class="text-center text-2xl mb-2 py-1">Dashboard</li>
             </a>
             @endif
             @if(Auth::user()->role_id == 2)
             <a href="/karyawan/dashboard">
-                <li class="text-center text-2xl bg-[#ca0000] mb-2 py-1">Dashboard</li>
+                <li class="text-center text-2xl mb-2 py-1">Dashboard</li>
             </a>
             @endif
             <a href="/profil_toko">
@@ -80,7 +80,7 @@
             </a>
             @endif
             <a href="/karyawan">
-                <li class="text-center text-2xl mb-2 py-1">Karyawan</li>
+                <li class="text-center text-2xl bg-[#ca0000] mb-2 py-1">Karyawan</li>
             </a>
             <a href="/pelanggan">
                 <li class="text-center text-2xl mb-2 py-1">Pelanggan</li>
@@ -94,9 +94,11 @@
             <a href="/penjualan">
                 <li class="text-center text-2xl mb-2 py-1">Penjualan</li>
             </a>
+            @if(Auth::user()->role_id == 1)
             <a href="/keuangan">
                 <li class="text-center text-2xl mb-2 py-1">Keuangan</li>
             </a>
+            @endif
 
         </ul>
         <ul class="text-white px-2 absolute w-full bottom-2">

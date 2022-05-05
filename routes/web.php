@@ -5,6 +5,7 @@ use App\Http\Controllers\ArtikelController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\BarangController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\GrafikController;
 use App\Http\Controllers\KaryawanController;
 use App\Http\Controllers\KeuanganController;
 use App\Http\Controllers\PelangganController;
@@ -84,10 +85,12 @@ Route::post('/penjualan/update/{id}', [PenjualanController::class, 'update']);
 //-----------------------------------------------------------------------------//
 //--------------------------------- A D M I N ---------------------------------//
 //admin-dashboard
-Route::get('/admin/dashboard', [DashboardController::class, 'admin_dashboard']);
+Route::get('/admin/dashboard', [DashboardController::class, 'admin_dashboard'])->name('admin-dashboard');
 
 //admin-admin
 Route::get('/admin/admin', [AdminController::class, 'index']);
+Route::get('/admin/create', [AdminController::class, 'create']);
+Route::post('/admin/insert', [AdminController::class, 'insert']);
 Route::get('/admin/detail/{id}', [AdminController::class, 'detail']);
 Route::get('/admin/edit/{id}', [AdminController::class, 'edit']);
 Route::post('/admin/update/{id}', [AdminController::class, 'update']);
@@ -99,9 +102,12 @@ Route::post('/keuangan/insert', [KeuanganController::class, 'insert']);
 Route::get('/keuangan/edit/{id}', [KeuanganController::class, 'edit']);
 Route::post('/keuangan/update/{id}', [KeuanganController::class, 'update']);
 
+//admin-grafik
+Route::get('/grafik_keuangan', [GrafikController::class, 'index']);
+
 
 
 
 //-----------------------------------------------------------------------------//
 //--------------------------------- K A R Y A W A N ---------------------------------//
-Route::get('/karyawan/dashboard', [DashboardController::class, 'karyawan_dashboard']);
+Route::get('/karyawan/dashboard', [DashboardController::class, 'karyawan_dashboard'])->name('karyawan-dashboard');

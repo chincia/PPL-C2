@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -47,6 +48,7 @@
         }
     </style>
 </head>
+
 <body>
     <div id="grid1" class="grid grid-cols-1 place-items-center">
         <h1 class="font-bold text-4xl text-white">PENDATAAN</h1>
@@ -61,12 +63,12 @@
         <ul class="text-white mt-4 px-2">
             @if(Auth::user()->role_id == 1)
             <a href="/admin/dashboard">
-                <li class="text-center text-2xl bg-[#ca0000] mb-2 py-1">Dashboard</li>
+                <li class="text-center text-2xl mb-2 py-1">Dashboard</li>
             </a>
             @endif
             @if(Auth::user()->role_id == 2)
             <a href="/karyawan/dashboard">
-                <li class="text-center text-2xl bg-[#ca0000] mb-2 py-1">Dashboard</li>
+                <li class="text-center text-2xl mb-2 py-1">Dashboard</li>
             </a>
             @endif
             <a href="/profil_toko">
@@ -87,14 +89,16 @@
                 <li class="text-center text-2xl mb-2 py-1">Artikel</li>
             </a>
             <a href="/barang">
-                <li class="text-center text-2xl mb-2 py-1">Barang</li>
+                <li class="text-center text-2xl bg-[#ca0000] mb-2 py-1">Barang</li>
             </a>
             <a href="/penjualan">
                 <li class="text-center text-2xl mb-2 py-1">Penjualan</li>
             </a>
+            @if(Auth::user()->role_id == 1)
             <a href="/keuangan">
                 <li class="text-center text-2xl mb-2 py-1">Keuangan</li>
             </a>
+            @endif
 
         </ul>
         <ul class="text-white px-2 absolute w-full bottom-2">
@@ -102,7 +106,8 @@
                 <li class="text-center text-2xl mb-2 py-1">Logout</li>
             </a>
         </ul>
-    </div>    <div id="grid4" class="px-10 py-8">
+    </div>
+    <div id="grid4" class="px-10 py-8">
         <h1 class="text-3xl font-medium text-center mb-8">KATALOG</h1>
         <div class="text-right mb-2">
             <a href="/barang" class="text-white px-2 rounded-full bg-[#ca0000] font-bold">Tampil Data</a>
@@ -124,4 +129,5 @@
         </div>
     </div>
 </body>
+
 </html>

@@ -20,7 +20,7 @@ class CreateAdminTable extends Migration
             $table->string('email');
             $table->string('no_hp');
             $table->date('tanggal_lahir');
-            $table->string('username');
+            $table->string('username')->unique();
             $table->string('password');
             $table->timestamps();
             $table->datetime('deleted_at')->nullable();

@@ -38,7 +38,7 @@ class PenjualanController extends Controller
         ]);
 
         Keuangan::create([
-            'keterangan' => 'masuk',
+            'keterangan' => 'debit',
             'transaksi' => 'Penjualan',
             'jumlah_transaksi' => $request->jumlah_barang,
             'harga_satuan' => $request->harga_barang,

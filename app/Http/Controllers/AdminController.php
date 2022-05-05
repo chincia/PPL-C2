@@ -10,7 +10,7 @@ class AdminController extends Controller
 {
     public function index()
     {
-        $data = Admin::join('users', 'admin.user_id', '=', 'users.id')->select('admin.id', 'admin.nama', 'admin.email', 'admin.no_hp', 'admin.tanggal_lahir','admin.password')->get();
+        $data = Admin::join('users', 'admin.user_id', '=', 'users.id')->select('admin.id', 'admin.nama', 'admin.user_id' ,'admin.email', 'admin.no_hp', 'admin.tanggal_lahir','admin.password')->get();
 
         return view('admin.admin.index', compact('data'));
     }
@@ -59,5 +59,35 @@ class AdminController extends Controller
             ]);
         }
         return redirect('/admin/admin');
+    }
+
+    public function create()
+    {
+        return view('admin.admin.create');
+    }
+
+    public function insert(Request $request)
+    {
+        User::create([
+            'role_id' => 1,
+            'nama' => $request->nama,
+            'username' => $request->username,
+            'password' => $request->password,
+        ]);
+        
+        $newest_user = User::select('id')->orderBy('id', 'desc')->first();
+        $newest_user = $newest_user['id'];
+
+        Admin::create([
+            'user_id' => $newest_user,
+            'nama' => $request->nama,
+            'email' => $request->email,
+            'no_hp' => $request->no_hp,
+            'tanggal_lahir' => $request->tanggal_lahir,
+            'username' => $request->username,
+            'password' => bcrypt($request->password)
+        ]);
+
+        return redirect('admin/admin');
     }
 }

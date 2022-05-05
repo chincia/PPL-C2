@@ -22,10 +22,10 @@ class AuthController extends Controller
             } elseif (Auth::user()->role_id == '1') {
                 return redirect('/admin/dashboard');
             } else {
-                return redirect('login');
+                return redirect('/login')->withError("Username atau Password salah");
             }
         }
-        return redirect('login');
+        return redirect('/login')->withError("Username/Password salah");
     }
 
     public function register()

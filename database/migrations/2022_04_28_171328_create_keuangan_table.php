@@ -15,7 +15,7 @@ class CreateKeuanganTable extends Migration
     {
         Schema::create('keuangan', function (Blueprint $table) {
             $table->id();
-            $table->enum('keterangan',['masuk','keluar']);
+            $table->enum('keterangan',['debit','kredit']);
             $table->string('transaksi');
             $table->integer('jumlah_transaksi');
             $table->integer('harga_satuan');

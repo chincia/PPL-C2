@@ -9,10 +9,11 @@ class DashboardController extends Controller
 {
     public function admin_dashboard()
     {
-        $masuk = Keuangan::where('keterangan','=','masuk')->sum('total_transaksi');
-        $keluar = Keuangan::where('keterangan','=','keluar')->sum('total_transaksi');
-        $pendapatan = intval($masuk) - intval($keluar);
-        return view('admin.dashboard', compact('masuk','keluar','pendapatan'));
+        $debit = Keuangan::select('keterangan','total_transaksi')->where('keterangan','=','debit')->sum('total_transaksi');
+        $kredit = Keuangan::select('keterangan','total_transaksi')->where('keterangan','=','kredit')->sum('total_transaksi');
+        $pendapatan = intval($debit) - intval($kredit);
+        $rekap = Keuangan::select('id','keterangan','transaksi','total_transaksi')->orderBy('id','desc')->limit(3)->get();
+        return view('admin.dashboard', compact('debit','kredit','pendapatan','rekap'));
     }
 
     public function karyawan_dashboard()

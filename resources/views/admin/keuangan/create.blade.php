@@ -94,9 +94,11 @@
             <a href="/penjualan">
                 <li class="text-center text-2xl mb-2 py-1">Penjualan</li>
             </a>
+            @if(Auth::user()->role_id == 1)
             <a href="/keuangan">
                 <li class="text-center  bg-[#ca0000] text-2xl mb-2 py-1">Keuangan</li>
             </a>
+            @endif
 
         </ul>
         <ul class="text-white px-2 absolute w-full bottom-2">
@@ -114,13 +116,16 @@
                     <label class="form-label">Keterangan</label>
                     <select class="form-select w-full bg-transparent border-b border-black py-2" name="keterangan" required>
                         <option value="">Pilih Keterangan Transaksi---</option>
-                        <option value="masuk">Masuk</option>
-                        <option value="keluar">Keluar</option>
+                        <option value="debit">Debit</option>
+                        <option value="kredit">Kredit</option>
                     </select>
                 </div>
-                <div><input type="text" placeholder="Jenis Transaksi" class="w-full bg-transparent border-b border-black py-2" name="transaksi"></div>
-                <div><input type="number" placeholder="Jumlah Transaksi" class="w-full bg-transparent border-b border-black py-2" name="jumlah_transaksi"></div>
-                <div><input type="number" placeholder="Harga Satuan" class="w-full bg-transparent border-b border-black py-2" name="harga_satuan"></div>
+                <div><input type="text" placeholder="Jenis Transaksi" class="w-full bg-transparent border-b border-black py-2" name="transaksi" required></div>
+                
+                <div><input type="number" placeholder="Jumlah Transaksi" class="w-full bg-transparent border-b border-black py-2" name="jumlah_transaksi" required></div>
+                
+                <div><input type="number" placeholder="Harga Satuan" class="w-full bg-transparent border-b border-black py-2" name="harga_satuan" required></div>
+                
                 <div class="text-center"><button type="submit" class="bg-[#ca0000] px-10 rounded-full text-white">Simpan</button></div>
             </div>
         </form>

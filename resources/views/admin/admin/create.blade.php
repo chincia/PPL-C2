@@ -1,11 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Siles - BARANG</title>
+    <title>Siles - Tambah Admin</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style type="text/tailwindcss">
         @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
@@ -48,7 +47,6 @@
         }
     </style>
 </head>
-
 <body>
     <div id="grid1" class="grid grid-cols-1 place-items-center">
         <h1 class="font-bold text-4xl text-white">PENDATAAN</h1>
@@ -72,11 +70,11 @@
             </a>
             @endif
             <a href="/profil_toko">
-                <li class="text-center text-2xl mb-2 py-1">Profile Toko</li>
+                <li class="text-center text-2xl  mb-2 py-1">Profile Toko</li>
             </a>
             @if(Auth::user()->role_id == 1)
             <a href="/admin/admin">
-                <li class="text-center text-2xl mb-2 py-1">Admin</li>
+                <li class="text-center text-2xl bg-[#ca0000] mb-2 py-1">Admin</li>
             </a>
             @endif
             <a href="/karyawan">
@@ -89,7 +87,7 @@
                 <li class="text-center text-2xl mb-2 py-1">Artikel</li>
             </a>
             <a href="/barang">
-                <li class="text-center text-2xl bg-[#ca0000] mb-2 py-1">Barang</li>
+                <li class="text-center text-2xl mb-2 py-1">Barang</li>
             </a>
             <a href="/penjualan">
                 <li class="text-center text-2xl mb-2 py-1">Penjualan</li>
@@ -99,49 +97,34 @@
                 <li class="text-center text-2xl mb-2 py-1">Keuangan</li>
             </a>
             @endif
-
         </ul>
         <ul class="text-white px-2 absolute w-full bottom-2">
             <a href="/logout">
                 <li class="text-center text-2xl mb-2 py-1">Logout</li>
             </a>
         </ul>
-    </div>    <div id="grid4" class="px-10 py-8">
-        <h1 class="text-center text-3xl mb-2">DATA BARANG</h1>
-        <div class="text-right mb-6">
-            <a href="/barang/katalog" class="text-white px-2 rounded-full bg-[#ca0000] font-bold">Tampil Katalog</a>
-        </div>
-            <table class="table-auto w-full bg-white">
-            <thead>
-                <tr>
-                    <th class="border border-black px-2 py-0">No</th>
-                    <th class="border border-black px-2 py-0">Nama Barang</th>
-                    <th class="border border-black px-2 py-0">Harga</th>
-                    <th class="border border-black px-2 py-0">Stok</th>
+    </div>
+    <div id="grid4" class="px-10 py-8">
+        <form action="/admin/insert" method="post">
+            @csrf
+            <div class="grid grid-cols-1 text-2xl gap-2">
+                <div class="text-3xl text-center">TAMBAH DATA ADMIN</div>
+                <div><input type="text" placeholder="Nama Lengkap" class="w-full bg-transparent border-b border-black py-2" name="nama" required></div>
 
-                    <th class="border border-black px-2 py-0">Action</th>
-                </tr>
-            </thead>
-            <tbody>
-                @php
-                $no = 1;
-                @endphp
-                @foreach($data as $dt)
-                <tr>
-                    <td class="border border-black px-2 py-0">{{$no++}}</td>
-                    <td class="border border-black px-2 py-0">{{$dt->nama_barang}}</td>
-                    <td class="border border-black px-2 py-0">Rp{{number_format($dt->harga_barang)}}</td>
-                    <td class="border border-black px-2 py-0">{{$dt->stok_barang}}</td>
-                    <td class="border border-black px-2 py-0">
-                        <a href="/barang/edit/{{$dt->id}}" class="text-white px-2 rounded-full bg-[#ca0000] font-bold">Ubah</a>
-                        <a href="/barang/detail/{{$dt->id}}" class="text-white px-2 rounded-full bg-[#ca0000] font-bold">Detail</a>
-                    </td>
-                </tr>
-                @endforeach
-            </tbody>
-        </table>
-        <a href="/barang/create" class="bg-[#ca0000] px-10 rounded-full text-white text-xl absolute left-1/2 -translate-x-1/2 bottom-4">Tambah</a>
+                <div><input type="text" placeholder="Username" class="w-full bg-transparent border-b border-black py-2" name="username" required></div>
+                
+                <div><input type="password" placeholder="Password" class="w-full bg-transparent border-b border-black py-2" name="password" required></div>
+                
+                <div><input type="email" placeholder="Email" class="w-full bg-transparent border-b 
+                border-black py-2" name="email" required></div>
+                
+                <div><input type="text" placeholder="No HP" class="w-full bg-transparent border-b border-black py-2" name="no_hp" required></div>
+                
+                <div><input type="date" placeholder="Tanggal Lahir" class="w-full bg-transparent border-b border-black py-2" name="tanggal_lahir" required></div>
+                
+                <div class="text-center"><button type="submit" class="bg-[#ca0000] px-10 rounded-full text-white">Simpan</button></div>
+            </div>
+        </form>
     </div>
 </body>
-
 </html>

@@ -92,9 +92,11 @@
             <a href="/penjualan">
                 <li class="text-center text-2xl mb-2 py-1">Penjualan</li>
             </a>
+            @if(Auth::user()->role_id == 1)
             <a href="/keuangan">
                 <li class="text-center text-2xl mb-2 py-1">Keuangan</li>
             </a>
+            @endif
 
         </ul>
         <ul class="text-white px-2 absolute w-full bottom-2">
@@ -108,15 +110,15 @@
             @csrf
             <div class="grid grid-cols-1 text-2xl gap-2">
                 <div class="text-3xl text-center">DATA ADMIN</div>
-                <div><input type="text" placeholder="Nama" class="w-full bg-transparent border-b border-black py-2" name="nama" value="{{$data->nama}}"></div>
+                <div><input type="text" placeholder="Nama" class="w-full bg-transparent border-b border-black py-2" name="nama" value="{{$data->nama}}" required></div>
 
-                <div><input type="text" placeholder="No HP" class="w-full bg-transparent border-b border-black py-2" name="no_hp" value="{{$data->no_hp}}"></div>
+                <div><input type="text" placeholder="No HP" class="w-full bg-transparent border-b border-black py-2" name="no_hp" value="{{$data->no_hp}}" required></div>
                 
-                <div><input type="email" placeholder="Email" class="w-full bg-transparent border-b border-black py-2" name="email" value="{{$data->email}}"></div>
+                <div><input type="email" placeholder="Email" class="w-full bg-transparent border-b border-black py-2" name="email" value="{{$data->email}}" required></div>
                 
-                <div><input type="date" placeholder="Tanggal Lahir" class="w-full bg-transparent border-b border-black py-2" name="tanggal_lahir" value="{{$data->tanggal_lahir}}"></div>
+                <div><input type="date" placeholder="Tanggal Lahir" class="w-full bg-transparent border-b border-black py-2" name="tanggal_lahir" value="{{$data->tanggal_lahir}}" required></div>
                 
-                <div><input type="text" placeholder="Username" class="w-full bg-transparent border-b border-black py-2" name="username" value="{{$data->username}}"></div>
+                <div><input type="text" placeholder="Username" class="w-full bg-transparent border-b border-black py-2" name="username" value="{{$data->username}}" required></div>
                 
                 <div><input type="password" placeholder="Password" class="w-full bg-transparent border-b border-black py-2" name="password"></div>
                 

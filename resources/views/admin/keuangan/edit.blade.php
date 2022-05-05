@@ -94,9 +94,11 @@
             <a href="/penjualan">
                 <li class="text-center text-2xl mb-2 py-1">Penjualan</li>
             </a>
+            @if(Auth::user()->role_id == 1)
             <a href="/keuangan">
                 <li class="text-center  bg-[#ca0000] text-2xl mb-2 py-1">Keuangan</li>
             </a>
+            @endif
 
         </ul>
         <ul class="text-white px-2 absolute w-full bottom-2">
@@ -118,9 +120,12 @@
                         <option value="keluar">Keluar</option>
                     </select>
                 </div>
-                <div><input type="text" placeholder="Jenis Transaksi" class="w-full bg-transparent border-b border-black py-2" name="transaksi" value="{{$data->transaksi}}"></div>
-                <div><input type="number" placeholder="Jumlah Transaksi" class="w-full bg-transparent border-b border-black py-2" name="jumlah_transaksi" value="{{$data->jumlah_transaksi}}"></div>
-                <div><input type="number" placeholder="Harga Satuan" class="w-full bg-transparent border-b border-black py-2" name="harga_satuan" value="{{$data->harga_satuan}}"></div>
+                <div><input type="text" placeholder="Jenis Transaksi" class="w-full bg-transparent border-b border-black py-2" name="transaksi" value="{{$data->transaksi}}" required></div>
+
+                <div><input type="number" placeholder="Jumlah Transaksi" class="w-full bg-transparent border-b border-black py-2" name="jumlah_transaksi" value="{{$data->jumlah_transaksi}}" required></div>
+                
+                <div><input type="number" placeholder="Harga Satuan" class="w-full bg-transparent border-b border-black py-2" name="harga_satuan" value="{{$data->harga_satuan}}" required></div>
+                
                 <div class="text-center"><button type="submit" class="bg-[#ca0000] px-10 rounded-full text-white">Simpan</button></div>
             </div>
         </form>

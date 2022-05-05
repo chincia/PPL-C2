@@ -43,7 +43,7 @@
     </div>
     <div id="grid2" class="px-10 py-8">
         <div class="grid grid-cols-2 md:px-10 lg:px-20 xl:px-40">
-            <a href="#" class="w-full text-center bg-[#d74a4c] text-white py-2 text-xl rounded-xl">Login</a>
+            <a href="/login" class="w-full text-center bg-[#d74a4c] text-white py-2 text-xl rounded-xl">Login</a>
             <a href="#" class="w-full text-center bg-[#ca0000] text-white py-2 text-xl rounded-xl">Registrasi</a>
             <form action="/post_register" method="post" class="col-span-2">
                 @csrf

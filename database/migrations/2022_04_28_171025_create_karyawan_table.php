@@ -17,7 +17,7 @@ class CreateKaryawanTable extends Migration
             $table->id();
             $table->unsignedBigInteger('user_id');
             $table->string('nama');
-            $table->string('username');
+            $table->string('username')->unique();
             $table->string('password');
             $table->string('no_hp');
             $table->text('alamat');

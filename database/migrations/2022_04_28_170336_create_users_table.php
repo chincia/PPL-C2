@@ -19,6 +19,8 @@ class CreateUsersTable extends Migration
             $table->string('nama');
             $table->string('username')->unique();
             $table->string('password');
+            $table->string('konfirmasi_password');
+            $table->enum('status',['aktif','nonaktif'])->nullable();
             $table->timestamps();
             $table->datetime('deleted_at')->nullable();
 

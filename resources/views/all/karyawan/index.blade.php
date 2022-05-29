@@ -98,6 +98,9 @@
             <a href="/keuangan">
                 <li class="text-center text-2xl mb-2 py-1">Keuangan</li>
             </a>
+            <a href="/keuntungan">
+                <li class="text-center text-2xl mb-2 py-1">Keuntungan</li>
+            </a>
             @endif
 
         </ul>
@@ -127,7 +130,7 @@
                 @foreach($data as $dt)
                 <tr>
                     <td class="border border-black px-2 py-0">{{$no++}}</td>
-                    <td class="border border-black px-2 py-0">{{$dt->nama}}</td>
+                    <td class="border border-black px-2 py-0">{{$dt->nama_karyawan}}</td>
                     <td class="border border-black px-2 py-0">{{$dt->no_hp}}</td>
                     <td class="border border-black px-2 py-0">{{$dt->alamat}}</td>
                     <td class="border border-black px-2 py-0">{{$dt->tanggal_lahir}}</td>

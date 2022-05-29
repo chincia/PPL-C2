@@ -98,6 +98,9 @@
             <a href="/keuangan">
                 <li class="text-center text-2xl mb-2 py-1">Keuangan</li>
             </a>
+            <a href="/keuntungan">
+                <li class="text-center text-2xl mb-2 py-1">Keuntungan</li>
+            </a>
             @endif
         </ul>
         <ul class="text-white px-2 absolute w-full bottom-2">
@@ -115,26 +118,38 @@
                     <label class="form-label">Nama Barang</label>
                     <select class="form-select w-full bg-transparent border-b border-black py-2" name="barang_id" required>
                         <option value="">Pilih Nama Barang---</option>
-                        @foreach($barang as $item)
-                        <option value="{{$item->id}}">{{$item->nama_barang}}</option>
+                        @foreach($barang as $item => $key)
+                        @if(Request::old('barang_id') == $item)
+                        <option value="{{$key->id}}" selected>{{$key->nama_barang}}</option>
+                        @else
+                        <option value="{{$key->id}}">{{$key->nama_barang}}</option>
+                        @endif
                         @endforeach
                     </select><br>
                     <label class="form-label">Nama Karyawan</label>
                     <select class="form-select w-full bg-transparent border-b border-black py-2" name="karyawan_id" required>
                         <option value="">Pilih Nama Karyawan---</option>
-                        @foreach($karyawan as $item2)
-                        <option value="{{$item2->id}}">{{$item2->nama}}</option>
+                        @foreach($karyawan as $item2 => $key2)
+                        @if(Request::old('karyawan_id') == $item2)
+                        <option value="{{$key2->id}}" selected>{{$key2->nama_karyawan}}</option>
+                        @else
+                        <option value="{{$key2->id}}">{{$key->nama_karyawan}}</option>
+                        @endif
                         @endforeach
                     </select><br>
                     <label class="form-label">Nama Pelanggan</label>
                     <select class="form-select w-full bg-transparent border-b border-black py-2" name="pelanggan_id" required>
                         <option value="">Pilih Nama Pelanggan---</option>
-                        @foreach($pelanggan as $item3)
-                        <option value="{{$item3->id}}">{{$item3->nama}}</option>
+                        @foreach($pelanggan as $item3 => $key3)
+                        @if(Request::old('karyawan_id') == $item3)
+                        <option value="{{$key3->id}}" selected>{{$key3->nama_pelanggan}}</option>
+                        @else
+                        <option value="{{$key3->id}}">{{$key3->nama_pelanggan}}</option>
+                        @endif
                         @endforeach
                     </select><br>
+                    <div><input type="date" placeholder="Tanaggal" class="w-full bg-transparent border-b border-black py-2" name="tanggal" value="{{$data->tanggal}}"></div>
                     <div><input type="number" placeholder="Jumlah" class="w-full bg-transparent border-b border-black py-2" name="jumlah_barang" value="{{$data->jumlah_barang}}"></div>
-                    <div><input type="number" placeholder="Harga" class="w-full bg-transparent border-b border-black py-2" name="harga_barang" value="{{$data->harga_barang}}"></div>
                 </div>
                 <div>
 

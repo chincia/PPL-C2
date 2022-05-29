@@ -98,6 +98,9 @@
             <a href="/keuangan">
                 <li class="text-center  bg-[#ca0000] text-2xl mb-2 py-1">Keuangan</li>
             </a>
+            <a href="/keuntungan">
+                <li class="text-center text-2xl mb-2 py-1">Keuntungan</li>
+            </a>
             @endif
 
         </ul>
@@ -121,6 +124,7 @@
                     </select>
                 </div>
                 <div><input type="text" placeholder="Jenis Transaksi" class="w-full bg-transparent border-b border-black py-2" name="transaksi" required></div>
+                <div><input type="date" placeholder="Tanggal" class="w-full bg-transparent border-b border-black py-2" name="tanggal" required></div>
                 
                 <div><input type="number" placeholder="Jumlah Transaksi" class="w-full bg-transparent border-b border-black py-2" name="jumlah_transaksi" required></div>
                 

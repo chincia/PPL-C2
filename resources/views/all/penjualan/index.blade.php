@@ -98,6 +98,9 @@
             <a href="/keuangan">
                 <li class="text-center text-2xl mb-2 py-1">Keuangan</li>
             </a>
+            <a href="/keuntungan">
+                <li class="text-center text-2xl mb-2 py-1">Keuntungan</li>
+            </a>
             @endif
         </ul>
         <ul class="text-white px-2 absolute w-full bottom-2">
@@ -115,6 +118,7 @@
                     <th class="border border-black px-2 py-0">Barang</th>
                     <th class="border border-black px-2 py-0">Karyawan</th>
                     <th class="border border-black px-2 py-0">Pelanggan</th>
+                    <th class="border border-black px-2 py-0">Tanggal</th>
                     <th class="border border-black px-2 py-0">Total Penjualan</th>
                     <th class="border border-black px-2 py-0">Action</th>
                 </tr>
@@ -127,8 +131,9 @@
                 <tr>
                     <td class="border border-black px-2 py-0">{{$no++}}</td>
                     <td class="border border-black px-2 py-0">{{$dt->nama_barang}}</td>
-                    <td class="border border-black px-2 py-0">{{$dt->nama}}</td>
-                    <td class="border border-black px-2 py-0">{{$dt->nama}}</td>
+                    <td class="border border-black px-2 py-0">{{$dt->nama_karyawan}}</td>
+                    <td class="border border-black px-2 py-0">{{$dt->nama_pelanggan}}</td>
+                    <td class="border border-black px-2 py-0">{{$dt->tanggal}}</td>
                     <td class="border border-black px-2 py-0">Rp{{number_format($dt->total_penjualan)}}</td>
                     <td class="border border-black px-2 py-0">
                         <a href="/penjualan/edit/{{$dt->id}}" class="text-white px-2 rounded-full bg-[#ca0000] font-bold">Edit</a>

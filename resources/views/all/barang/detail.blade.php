@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -47,6 +48,7 @@
         }
     </style>
 </head>
+
 <body>
     <div id="grid1" class="grid grid-cols-1 place-items-center">
         <h1 class="font-bold text-4xl text-white">PENDATAAN</h1>
@@ -96,6 +98,9 @@
             <a href="/keuangan">
                 <li class="text-center text-2xl mb-2 py-1">Keuangan</li>
             </a>
+            <a href="/keuntungan">
+                <li class="text-center text-2xl mb-2 py-1">Keuntungan</li>
+            </a>
             @endif
 
         </ul>
@@ -104,16 +109,28 @@
                 <li class="text-center text-2xl mb-2 py-1">Logout</li>
             </a>
         </ul>
-    </div>    <div id="grid4" class="px-10 py-8">
-        <div class="grid grid-cols-1">
+    </div>
+    <div id="grid4" class="px-10 py-8">
+        <div class="grid grid-cols-1 mb-5">
             <div class="text-center text-3xl">{{$data->nama_barang}}</div>
-            <div class="text-center">
+        </div>
+        <div class="grid grid-cols-3">
+            <div class="w-full">
                 <img src="{{ asset('foto-barang/'.$data->foto_barang) }}" style="width: 250px;" alt="">
             </div>
-            <div class="text-justify text-xl">Harga: Rp{{number_format($data->harga_barang)}}</div>
-            <div class="text-justify text-xl">Stok: {{$data->stok_barang}}</div>
-            <div class="text-justify text-xl">{{$data->deskripsi_barang}}</div>
+            <div class="w-full">
+                <div class="text-justify text-xl">Harga: <b>Rp{{number_format($data->harga_barang)}}</b></div>
+                <div class="text-justify text-xl">Stok: <b>{{$data->stok_barang}}</b></div>
+                <div class="text-justify text-xl mb-5">Deskripsi: {{$data->deskripsi_barang}}</div>
+                <hr><br>
+                <a href="/barang" class="text-white px-4 py-2 rounded-full bg-[#ca0000] font-bold">Kembali ke Menu Barang</a>
+            </div>
+            <div class="w-full">
+                <br><br>
+                <a href="/barang/edit/{{$data->id}}" class="text-white px-4 py-2 rounded-full bg-[#ca0000] font-bold">Ubah Barang</a>
+            </div>
         </div>
     </div>
 </body>
+
 </html>

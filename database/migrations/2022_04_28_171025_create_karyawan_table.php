@@ -16,12 +16,13 @@ class CreateKaryawanTable extends Migration
         Schema::create('karyawan', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('user_id');
-            $table->string('nama');
+            $table->string('nama_karyawan');
             $table->string('username')->unique();
             $table->string('password');
-            $table->string('no_hp');
-            $table->text('alamat');
-            $table->date('tanggal_lahir');
+            $table->string('konfirmasi_password');
+            $table->string('no_hp')->nullable();
+            $table->text('alamat')->nullable();
+            $table->date('tanggal_lahir')->nullable();
             $table->enum('status',['aktif','nonaktif']);
             $table->timestamps();
             $table->datetime('deleted_at')->nullable();

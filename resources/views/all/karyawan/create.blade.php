@@ -6,6 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Siles - Tambah KARYAWAN</title>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="sweetalert2.min.js"></script>
     <script src="https://cdn.tailwindcss.com"></script>
     <style type="text/tailwindcss">
         @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
@@ -98,6 +100,9 @@
             <a href="/keuangan">
                 <li class="text-center text-2xl mb-2 py-1">Keuangan</li>
             </a>
+            <a href="/keuntungan">
+                <li class="text-center text-2xl mb-2 py-1">Keuntungan</li>
+            </a>
             @endif
 
         </ul>
@@ -106,29 +111,31 @@
                 <li class="text-center text-2xl mb-2 py-1">Logout</li>
             </a>
         </ul>
-    </div>    <div id="grid4" class="px-10 py-8">
+    </div>
+    <div id="grid4" class="px-10 py-8">
         <form action="/karyawan/insert" method="post">
             @csrf
             <div class="grid grid-cols-1 text-2xl gap-2">
                 <div class="text-3xl text-center">DATA KARYAWAN</div>
                 <div><input type="text" placeholder="Nama" class="w-full bg-transparent border-b border-black py-2" name="nama"></div>
+                <div>
+                    <input type="text" placeholder="Nomor HP" class="w-full bg-transparent border-b border-black py-2" name="no_hp">
+                </div>
+                <div><input type="date" placeholder="Tanggal Lahir" class="w-full bg-transparent border-b border-black py-2" name="tanggal_lahir"></div>
                 <div class="row">
                     <div class="col-md-6">
                         <div><input type="text" placeholder="Username" class="w-full bg-transparent border-b border-black py-2" name="username"></div>
                     </div>
-                    <div class="col-md-6">
+                    <div class="col-md-3">
                         <div><input type="password" placeholder="Password" class="w-full bg-transparent border-b border-black py-2" name="password"></div>
                     </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-6">
-                        <div><input type="date" placeholder="Tanggal Lahir" class="w-full bg-transparent border-b border-black py-2" name="tanggal_lahir"></div>
+                    <div class="col-md-3">
+                        <div><input type="password" placeholder="Konfirmasi Password" class="w-full bg-transparent border-b border-black py-2" name="konfirmasi_password"></div>
                     </div>
-                    <div class="col-md-6">
-                        <div><input type="text" placeholder="No HP" class="w-full bg-transparent border-b border-black py-2" name="no_hp"></div>
+                    <div>
+                        <textarea type="password" placeholder="Alamat" class="w-full bg-transparent border-b border-black py-2" name="alamat" rows="3"></textarea>
                     </div>
                 </div>
-                <div><textarea name="alamat" id="" rows="3" placeholder="Alamat" class="w-full border border-black rounded-lg p-2"></textarea></div>
                 <div>
                     <select class="form-select w-full bg-transparent border-b border-black py-2" aria-label="Default select example" name="status">
                         <option selected>Pilih Status Karyawan-----</option>
@@ -141,5 +148,10 @@
         </form>
     </div>
 </body>
+<script>
+    @if(Session::has('error'))
+    swal.fire("{{ Session::get('error') }}")
+    @endif
+</script>
 
 </html>

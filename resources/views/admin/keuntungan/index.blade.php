@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Siles - Detail PELANGGAN</title>
+    <title>Siles - KEUNTUNGAN</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style type="text/tailwindcss">
         @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
@@ -47,6 +48,7 @@
         }
     </style>
 </head>
+
 <body>
     <div id="grid1" class="grid grid-cols-1 place-items-center">
         <h1 class="font-bold text-4xl text-white">PENDATAAN</h1>
@@ -81,7 +83,7 @@
                 <li class="text-center text-2xl mb-2 py-1">Karyawan</li>
             </a>
             <a href="/pelanggan">
-                <li class="text-center text-2xl bg-[#ca0000] mb-2 py-1">Pelanggan</li>
+                <li class="text-center text-2xl mb-2 py-1">Pelanggan</li>
             </a>
             <a href="/artikel">
                 <li class="text-center text-2xl mb-2 py-1">Artikel</li>
@@ -94,10 +96,10 @@
             </a>
             @if(Auth::user()->role_id == 1)
             <a href="/keuangan">
-                <li class="text-center text-2xl mb-2 py-1">Keuangan</li>
+                <li class="text-center  text-2xl mb-2 py-1">Keuangan</li>
             </a>
             <a href="/keuntungan">
-                <li class="text-center text-2xl mb-2 py-1">Keuntungan</li>
+                <li class="text-center bg-[#ca0000] text-2xl mb-2 py-1">Keuntungan</li>
             </a>
             @endif
         </ul>
@@ -106,19 +108,50 @@
                 <li class="text-center text-2xl mb-2 py-1">Logout</li>
             </a>
         </ul>
-    </div>    <div id="grid4" class="px-10 py-8">
-        <div class="grid grid-cols-3 text-2xl md:px-10 lg:px-20 xl:px-40">
-            <div class="col-span-3 text-3xl text-center mb-8">DATA PELANGGAN</div>
-            <div>Nama</div>
-            <div class=" mb-4 col-span-2">: {{$data->nama_pelanggan}}</div>
-            <div>No HP</div>
-            <div class=" mb-4 col-span-2">: {{$data->no_hp}}</div>
-            <div>Email</div>
-            <div class=" mb-4 col-span-2">: {{$data->alamat}}</div>
-            <div class="col-span-3 text-center">
-                <a href="/pelanggan/edit/{{$data->id}}" class="bg-[#ca0000] px-10 rounded-full text-white">Ubah</a>
+    </div>
+    <div id="grid4" class="px-10 py-8">
+        <h1 class="text-center text-3xl mb-2">GRAFIK KEUANGAN</h1>
+        <div class="text-right mb-6">
+            <a href="/keuangan" class="text-white px-2 rounded-full bg-[#ca0000] font-bold">Data Keuangan</a>
+        </div>
+        <link rel="stylesheet" href="css/grafik.css">
+        <div class="row-form">
+            <div class="col-lg-12">
+                <div class="card-body">
+                    <div id="grafik"></div>
+                </div>
             </div>
+
+
         </div>
     </div>
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script type="text/javascript">
+        var keuntungan = <?php echo json_encode($result) ?>;
+        var bulan = <?php echo json_encode($bulan) ?>;
+        Highcharts.chart('grafik', {
+            title: {
+                text: 'Grafik Keuntungan'
+            },
+            xAxis: {
+                categories: bulan
+            },
+            yAxis: {
+                title: {
+                    text: 'Keuntungan Keuangan perBulan'
+                }
+            },
+            plotOptions: {
+                series: {
+                    allowPointSelect: true
+                }
+            },
+            series: [{
+                name: 'Nominal Keuntungan',
+                data: keuntungan
+            }]
+        });
+    </script>
 </body>
+
 </html>

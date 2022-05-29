@@ -21,28 +21,39 @@ class KaryawanController extends Controller
 
     public function insert(Request $request)
     {
-        User::create([
-            'role_id' => 2,
-            'nama' => $request->nama,
-            'username' => $request->username,
-            'password' => bcrypt($request->password)
-        ]);
+        $password = $request->password;
+        $konfirmasi_password = $request->konfirmasi_password;
 
-        $newestuser = User::select('id')->orderBy('id', 'desc')->first();
-        $newestuser = $newestuser['id'];
+        if($password == $konfirmasi_password){
 
-        Karyawan::create([
-            'user_id' => $newestuser,
-            'nama' => $request->nama,
-            'username' => $request->username,
-            'password' => bcrypt($request->password),
-            'no_hp' => $request->no_hp,
-            'alamat' => $request->alamat,
-            'tanggal_lahir' => $request->tanggal_lahir,
-            'status' => $request->status
-        ]);
-
-        return redirect('karyawan');
+            User::create([
+                'role_id' => 2,
+                'nama' => $request->nama,
+                'username' => $request->username,
+                'password' => bcrypt($password),
+                'konfirmasi_password' => bcrypt($konfirmasi_password),
+                'status' => $request->status
+            ]);
+            
+            $newestuser = User::select('id')->orderBy('id', 'desc')->first();
+            $newestuser = $newestuser['id'];
+            
+            Karyawan::create([
+                'user_id' => $newestuser,
+                'nama_karyawan' => $request->nama,
+                'username' => $request->username,
+                'password' => bcrypt($request->password),
+                'konfirmasi_password' => bcrypt($konfirmasi_password),
+                'no_hp' => $request->no_hp,
+                'alamat' => $request->alamat,
+                'tanggal_lahir' => $request->tanggal_lahir,
+                'status' => $request->status
+            ]);
+            
+            return redirect('karyawan');
+        }else{
+            return redirect('/karyawan/create')->withError("Masukkan data yang valid!");
+        }
     }
 
     public function detail($id)
@@ -59,7 +70,10 @@ class KaryawanController extends Controller
 
     public function update(Request $request, $id)
     {
-        $data = Karyawan::where('id', $id)->update([
+        $user = User::rightjoin('karyawan','users.id','=','karyawan.user_id')->select('users.status','karyawan.id','karyawan.user_id')->where('karyawan.id', $id)->update([
+            'users.status' => $request->status
+        ]);
+        $karyawan = Karyawan::where('id', $id)->update([
             'status' => $request->status
         ]);
         return redirect('karyawan');

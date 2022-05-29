@@ -98,6 +98,9 @@
             <a href="/keuangan">
                 <li class="text-center text-2xl mb-2 py-1">Keuangan</li>
             </a>
+            <a href="/keuntungan">
+                <li class="text-center text-2xl mb-2 py-1">Keuntungan</li>
+            </a>
             @endif
         </ul>
         <ul class="text-white px-2 absolute w-full bottom-2">
@@ -112,7 +115,7 @@
             <thead>
                 <tr>
                     <th class="border border-black px-2 py-0">No</th>
-                    <th class="border border-black px-2 py-0">Username</th>
+                    <th class="border border-black px-2 py-0">Nama</th>
                     <th class="border border-black px-2 py-0">No HP</th>
                     <th class="border border-black px-2 py-0">Email</th>
                     <th class="border border-black px-2 py-0">Tanggal Lahir</th>
@@ -130,12 +133,10 @@
                     <td class="border border-black px-2 py-0">{{$dt->no_hp}}</td>
                     <td class="border border-black px-2 py-0">{{$dt->email}}</td>
                     <td class="border border-black px-2 py-0">{{$dt->tanggal_lahir}}</td>
-                    @if($dt->user_id == Auth::user()->id)
                     <td class="border border-black px-2 py-0">
                         <a href="/admin/detail/{{$dt->id}}" class="text-white px-2 rounded-full bg-[#ca0000] font-bold">Detail</a>
                         <a href="/admin/edit/{{$dt->id}}" class="text-white px-2 rounded-full bg-[#ca0000] font-bold">Ubah</a>
                     </td>
-                    @endif
                 </tr>
                 @endforeach
             </tbody>

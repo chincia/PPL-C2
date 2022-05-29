@@ -98,6 +98,9 @@
             <a href="/keuangan">
                 <li class="text-center text-2xl mb-2 py-1">Keuangan</li>
             </a>
+            <a href="/keuntungan">
+                <li class="text-center text-2xl mb-2 py-1">Keuntungan</li>
+            </a>
             @endif
 
         </ul>
@@ -106,7 +109,8 @@
                 <li class="text-center text-2xl mb-2 py-1">Logout</li>
             </a>
         </ul>
-    </div>    <div id="grid4" class="px-10 py-8">
+    </div>
+    <div id="grid4" class="px-10 py-8">
         <form action="/artikel/update/{{$data->id}}" method="post">
             @csrf
             <div class="grid grid-cols-1 text-2xl gap-2">
@@ -115,8 +119,12 @@
                     <label class="form-label">Nama Barang</label>
                     <select class="form-select w-full bg-transparent border-b border-black py-2" name="barang_id" required>
                         <option value="">Pilih Nama Barang---</option>
-                        @foreach($barang as $item)
+                        @foreach($data_barang as $key => $item)
+                        @if(Request::old('barang_id') == $key)
+                        <option value="{{$item->id}}" selected>{{$item->nama_barang}}</option>
+                        @else
                         <option value="{{$item->id}}">{{$item->nama_barang}}</option>
+                        @endif
                         @endforeach
                     </select>
                 </div>

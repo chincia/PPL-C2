@@ -98,6 +98,9 @@
             <a href="/keuangan">
                 <li class="text-center bg-[#ca0000] text-2xl mb-2 py-1">Keuangan</li>
             </a>
+            <a href="/keuntungan">
+                <li class="text-center text-2xl mb-2 py-1">Keuntungan</li>
+            </a>
             @endif
         </ul>
         <ul class="text-white px-2 absolute w-full bottom-2">
@@ -145,7 +148,7 @@
                 }
             },
             series: [{
-                name: 'Nominal Pendapatan',
+                name: 'Nominal Pemasukan',
                 data: pendapatan
             }, {
                 name: 'Nominal Pengeluaran',

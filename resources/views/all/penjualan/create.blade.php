@@ -98,6 +98,9 @@
             <a href="/keuangan">
                 <li class="text-center text-2xl mb-2 py-1">Keuangan</li>
             </a>
+            <a href="/keuntungan">
+                <li class="text-center text-2xl mb-2 py-1">Keuntungan</li>
+            </a>
             @endif
         </ul>
         <ul class="text-white px-2 absolute w-full bottom-2">
@@ -123,24 +126,23 @@
                     <select class="form-select w-full bg-transparent border-b border-black py-2" name="karyawan_id" required>
                         <option value="">Pilih Nama Karyawan---</option>
                         @foreach($karyawan as $item2)
-                        <option value="{{$item2->id}}">{{$item2->nama}}</option>
+                        <option value="{{$item2->id}}">{{$item2->nama_karyawan}}</option>
                         @endforeach
                     </select><br>
                     <label class="form-label">Nama Pelanggan</label>
                     <select class="form-select w-full bg-transparent border-b border-black py-2" name="pelanggan_id" required>
                         <option value="">Pilih Nama Pelanggan---</option>
                         @foreach($pelanggan as $item3)
-                        <option value="{{$item3->id}}">{{$item3->nama}}</option>
+                        <option value="{{$item3->id}}">{{$item3->nama_pelanggan}}</option>
                         @endforeach
                     </select><br>
+                    <div><input type="date" placeholder="Tanggal" class="w-full bg-transparent border-b border-black py-2" name="tanggal"></div>
                     <div><input type="number" placeholder="Jumlah" class="w-full bg-transparent border-b border-black py-2" name="jumlah_barang"></div>
-                    <div><input type="number" placeholder="Harga" class="w-full bg-transparent border-b border-black py-2" name="harga_barang"></div>
                 </div>
                 <div>
 
                 </div>
                 <div>
-
                 </div>
                 <div class="text-center"><button type="submit" class="bg-[#ca0000] px-10 rounded-full text-white">Simpan</button></div>
             </div>

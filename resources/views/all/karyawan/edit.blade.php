@@ -98,6 +98,9 @@
             <a href="/keuangan">
                 <li class="text-center text-2xl mb-2 py-1">Keuangan</li>
             </a>
+            <a href="/keuntungan">
+                <li class="text-center text-2xl mb-2 py-1">Keuntungan</li>
+            </a>
             @endif
 
         </ul>
@@ -111,7 +114,7 @@
             @csrf
             <div class="grid grid-cols-1 text-2xl gap-2">
                 <div class="text-3xl text-center">DATA KARYAWAN</div>
-                <div><input type="text" placeholder="Nama" class="w-full bg-transparent border-b border-black py-2" name="nama" value="{{$data->nama}}" disabled></div>
+                <div><input type="text" placeholder="Nama" class="w-full bg-transparent border-b border-black py-2" name="nama" value="{{$data->nama_karyawan}}" disabled></div>
                 <div class="row">
                     <div class="col-md-6">
                         <div><input type="text" placeholder="Username" class="w-full bg-transparent border-b border-black py-2" name="username" value="{{$data->username}}" disabled></div>
@@ -130,8 +133,8 @@
                 </div>
                 <div><textarea name="alamat" id="" rows="3" placeholder="Alamat" class="w-full border border-black rounded-lg p-2" disabled>{{$data->alamat}}</textarea></div>
                 <div><select class="form-select w-full bg-transparent border-b border-black py-2" aria-label="Default select example" name="status">
-                        <option value="aktif" {{old('status') == 'aktif' ? 'selected' : ''}}>Aktif</option>
-                        <option value="nonaktif" {{old('status') == 'nonaktif' ? 'selected' : '' }}>Non-Aktif</option>
+                        <option {{ ($data->status) == 'aktif' ? 'selected' : '' }} value="aktif">Aktif</option>
+                        <option {{ ($data->status) == 'nonaktif' ? 'selected' : '' }} value="nonaktif">Non-Aktif</option>
                     </select></div>
                 <div class="text-center"><button type="submit" class="bg-[#ca0000] px-10 rounded-full text-white">Simpan</button></div>
             </div>

@@ -72,7 +72,8 @@ class AdminController extends Controller
             'role_id' => 1,
             'nama' => $request->nama,
             'username' => $request->username,
-            'password' => $request->password,
+            'password' => bcrypt($request->password),
+            'konfirmasi_password' => bcrypt($request->password),
         ]);
         
         $newest_user = User::select('id')->orderBy('id', 'desc')->first();
@@ -85,7 +86,8 @@ class AdminController extends Controller
             'no_hp' => $request->no_hp,
             'tanggal_lahir' => $request->tanggal_lahir,
             'username' => $request->username,
-            'password' => bcrypt($request->password)
+            'password' => bcrypt($request->password),
+            'konfirmasi_password' => bcrypt($request->password)
         ]);
 
         return redirect('admin/admin');

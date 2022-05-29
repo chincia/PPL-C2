@@ -38,9 +38,9 @@ class ArtikelController extends Controller
 
     public function edit($id)
     {
-        $barang = Barang::all();
+        $data_barang = Barang::all();
         $data = Artikel::where('id',$id)->first();
-        return view('all.artikel.edit', compact('barang','data'));
+        return view('all.artikel.edit', compact('data_barang','data'));
     }
 
     public function update(Request $request, $id)
@@ -49,7 +49,6 @@ class ArtikelController extends Controller
             'barang_id' => $request->barang_id,
             'deskripsi' => $request->deskripsi
         ]);
-
         return redirect('/artikel');
     }
 }

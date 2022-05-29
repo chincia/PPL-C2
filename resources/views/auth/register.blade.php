@@ -5,6 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Siles</title>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="sweetalert2.min.js"></script>
     <script src="https://cdn.tailwindcss.com"></script>
     <style type="text/tailwindcss">
         @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
@@ -50,14 +52,20 @@
                 <div class="w-full text-center bg-white rounded-xl grid grid-cols-2 text-xl gap-4 py-20 px-10">
                     <div class="col-span-2"><input type="text" placeholder="Nama Lengkap" class="w-full bg-transparent border-b border-black py-2" name="nama"></div>
                     <div><input type="email" placeholder="Email" class="w-full bg-transparent border-b border-black py-2" name="email"></div>
-                    <div><input type="text" placeholder="No HP" class="w-full bg-transparent border-b border-black py-2" name="no_hp"></div>
+                    <div><input type="text" placeholder="Nomor HP" class="w-full bg-transparent border-b border-black py-2" name="no_hp"></div>
                     <div class="col-span-2"><input type="text" placeholder="Username" class="w-full bg-transparent border-b border-black py-2" name="username"></div>
-                    <div class="col-span-2"><input type="password" placeholder="Password" class="w-full bg-transparent border-b border-black py-2" name="password"></div>
-                    <div class="col-span-2"><input type="date" placeholder="Tanggal Lahir" class="w-full bg-transparent border-b border-black py-2" name="tanggal_lahir"></div>
+                    <div><input type="password" placeholder="Password" class="w-full bg-transparent border-b border-black py-2" name="password"></div>
+                    <div><input type="password" placeholder="Konfirmasi Password" class="w-full bg-transparent border-b border-black py-2" name="konfirmasi_password"></div>
                     <div class="text-center col-span-2"><button type="submit" class="bg-[#ca0000] px-10 rounded-full text-white">Registrasi</button></div>
                 </div>
             </form>
         </div>
     </div>
 </body>
+<script>
+    @if(Session::has('error'))
+    swal.fire("{{ Session::get('error') }}")
+    @endif
+</script>
+
 </html>

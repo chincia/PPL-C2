@@ -17,6 +17,7 @@ class CreateKeuanganTable extends Migration
             $table->id();
             $table->enum('keterangan',['debit','kredit']);
             $table->string('transaksi');
+            $table->date('tanggal');
             $table->integer('jumlah_transaksi');
             $table->integer('harga_satuan');
             $table->integer('total_transaksi');

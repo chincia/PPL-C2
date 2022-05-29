@@ -98,6 +98,9 @@
             <a href="/keuangan">
                 <li class="text-center text-2xl mb-2 py-1">Keuangan</li>
             </a>
+            <a href="/keuntungan">
+                <li class="text-center text-2xl mb-2 py-1">Keuntungan</li>
+            </a>
             @endif
         </ul>
         <ul class="text-white px-2 absolute w-full bottom-2">
@@ -110,7 +113,7 @@
             @csrf
             <div class="grid grid-cols-1 text-2xl gap-2">
                 <div class="text-3xl text-center">DATA PELANGGAN</div>
-                <div><input type="text" placeholder="Nama" class="w-full bg-transparent border-b border-black py-2" name="nama" value="{{$data->nama}}"></div>
+                <div><input type="text" placeholder="Nama" class="w-full bg-transparent border-b border-black py-2" name="nama" value="{{$data->nama_pelanggan}}"></div>
                 <div><input type="text" placeholder="No HP" class="w-full bg-transparent border-b border-black py-2" name="no_hp" value="{{$data->no_hp}}"></div>
                 <div><textarea name="alamat" id="" rows="3" placeholder="Alamat" class="w-full border border-black rounded-lg p-2">{{$data->alamat}}</textarea></div>
                 <div class="text-center"><button type="submit" class="bg-[#ca0000] px-10 rounded-full text-white">Simpan</button></div>

@@ -15,6 +15,7 @@ class Keuangan extends Model
     protected $fillable = [
         'keterangan',
         'transaksi',
+        'tanggal',
         'harga_satuan',
         'jumlah_transaksi',
         'total_transaksi',

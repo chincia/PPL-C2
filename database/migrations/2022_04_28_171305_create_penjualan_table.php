@@ -18,6 +18,7 @@ class CreatePenjualanTable extends Migration
             $table->unsignedBigInteger('barang_id');
             $table->unsignedBigInteger('karyawan_id');
             $table->unsignedBigInteger('pelanggan_id');
+            $table->date('tanggal');
             $table->integer('jumlah_barang');
             $table->integer('harga_barang');
             $table->integer('total_penjualan');

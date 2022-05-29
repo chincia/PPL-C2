@@ -96,6 +96,9 @@
             <a href="/keuangan">
                 <li class="text-center text-2xl mb-2 py-1">Keuangan</li>
             </a>
+            <a href="/keuntungan">
+                <li class="text-center text-2xl mb-2 py-1">Keuntungan</li>
+            </a>
             @endif
 
         </ul>
@@ -108,7 +111,7 @@
         <div class="grid grid-cols-3 text-2xl md:px-10 lg:px-20 xl:px-40">
             <div class="col-span-3 text-3xl text-center mb-8">DATA KARYAWAN</div>
             <div>Nama</div>
-            <div class=" mb-4 col-span-2">: {{$data->nama}}</div>
+            <div class=" mb-4 col-span-2">: {{$data->nama_karyawan}}</div>
             <div>No HP</div>
             <div class=" mb-4 col-span-2">: {{$data->no_hp}}</div>
             <div>Email</div>

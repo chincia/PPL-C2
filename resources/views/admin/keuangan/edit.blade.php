@@ -98,6 +98,9 @@
             <a href="/keuangan">
                 <li class="text-center  bg-[#ca0000] text-2xl mb-2 py-1">Keuangan</li>
             </a>
+            <a href="/keuntungan">
+                <li class="text-center text-2xl mb-2 py-1">Keuntungan</li>
+            </a>
             @endif
 
         </ul>
@@ -113,18 +116,19 @@
             <div class="grid grid-cols-1 text-2xl gap-2">
                 <div class="text-3xl text-center">DATA TRANSAKSI</div>
                 <div>
-                    <label class="form-label">Keterangan</label>
+                    <label class="form-label"><b>Keterangan</b></label>
                     <select class="form-select w-full bg-transparent border-b border-black py-2" name="keterangan" required>
                         <option value="">Pilih Keterangan Transaksi---</option>
-                        <option value="masuk">Masuk</option>
-                        <option value="keluar">Keluar</option>
+                        <option {{ ($data->keterangan) == 'debit' ? 'selected' : '' }} value="debit">Debit</option>
+                        <option {{ ($data->keterangan) == 'kredit' ? 'selected' : '' }} value="kredit">Kredit</option>
                     </select>
                 </div>
-                <div><input type="text" placeholder="Jenis Transaksi" class="w-full bg-transparent border-b border-black py-2" name="transaksi" value="{{$data->transaksi}}" required></div>
+                <div>
+                <label class="form-label"><b>Transaksi</b></label><input type="text" placeholder="Jenis Transaksi" class="w-full bg-transparent border-b border-black py-2" name="transaksi" value="{{$data->transaksi}}" required></div>
 
-                <div><input type="number" placeholder="Jumlah Transaksi" class="w-full bg-transparent border-b border-black py-2" name="jumlah_transaksi" value="{{$data->jumlah_transaksi}}" required></div>
+                <div><label class="form-label"><b>Jumlah Transaksi</b></label><input type="number" placeholder="Jumlah Transaksi" class="w-full bg-transparent border-b border-black py-2" name="jumlah_transaksi" value="{{$data->jumlah_transaksi}}" required></div>
                 
-                <div><input type="number" placeholder="Harga Satuan" class="w-full bg-transparent border-b border-black py-2" name="harga_satuan" value="{{$data->harga_satuan}}" required></div>
+                <div><label class="form-label"><b>Harga Satuan</b></label><input type="number" placeholder="Harga Satuan" class="w-full bg-transparent border-b border-black py-2" name="harga_satuan" value="{{$data->harga_satuan}}" required></div>
                 
                 <div class="text-center"><button type="submit" class="bg-[#ca0000] px-10 rounded-full text-white">Simpan</button></div>
             </div>

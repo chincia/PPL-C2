@@ -23,7 +23,7 @@ class PelangganController extends Controller
     public function insert(Request $request)
     {
         Pelanggan::create([
-            'nama' => $request->nama,
+            'nama_pelanggan' => $request->nama,
             'alamat' => $request->alamat,
             'no_hp' => $request->no_hp,
         ]);
@@ -46,7 +46,7 @@ class PelangganController extends Controller
     public function update(Request $request, $id)
     {
         $data = Pelanggan::where('id', $id)->update([
-            'nama' => $request->nama,
+            'nama_pelanggan' => $request->nama,
             'alamat' => $request->alamat,
             'no_hp' => $request->no_hp
         ]);

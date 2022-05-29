@@ -96,6 +96,9 @@
             <a href="/keuangan">
                 <li class="text-center text-2xl mb-2 py-1">Keuangan</li>
             </a>
+            <a href="/keuntungan">
+                <li class="text-center text-2xl mb-2 py-1">Keuntungan</li>
+            </a>
             @endif
         </ul>
         <ul class="text-white px-2 absolute w-full bottom-2">
@@ -118,9 +121,9 @@
                 <div><input type="email" placeholder="Email" class="w-full bg-transparent border-b 
                 border-black py-2" name="email" required></div>
                 
-                <div><input type="text" placeholder="No HP" class="w-full bg-transparent border-b border-black py-2" name="no_hp" required></div>
+                <div><input type="text" placeholder="No HP" class="w-full bg-transparent border-b border-black py-2" name="no_hp" ></div>
                 
-                <div><input type="date" placeholder="Tanggal Lahir" class="w-full bg-transparent border-b border-black py-2" name="tanggal_lahir" required></div>
+                <div><input type="date" placeholder="Tanggal Lahir" class="w-full bg-transparent border-b border-black py-2" name="tanggal_lahir" max="2004-01-01" ></div>
                 
                 <div class="text-center"><button type="submit" class="bg-[#ca0000] px-10 rounded-full text-white">Simpan</button></div>
             </div>

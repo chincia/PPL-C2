@@ -18,10 +18,11 @@ class CreateAdminTable extends Migration
             $table->unsignedBigInteger('user_id');
             $table->string('nama');
             $table->string('email');
-            $table->string('no_hp');
-            $table->date('tanggal_lahir');
+            $table->string('no_hp')->nullable();
+            $table->date('tanggal_lahir')->nullable();
             $table->string('username')->unique();
             $table->string('password');
+            $table->string('konfirmasi_password');
             $table->timestamps();
             $table->datetime('deleted_at')->nullable();
 

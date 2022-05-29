@@ -8,6 +8,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\GrafikController;
 use App\Http\Controllers\KaryawanController;
 use App\Http\Controllers\KeuanganController;
+use App\Http\Controllers\KeuntunganController;
 use App\Http\Controllers\PelangganController;
 use App\Http\Controllers\PenjualanController;
 use App\Http\Controllers\ProfilTokoController;
@@ -105,8 +106,8 @@ Route::post('/keuangan/update/{id}', [KeuanganController::class, 'update']);
 //admin-grafik
 Route::get('/grafik_keuangan', [GrafikController::class, 'index']);
 
-
-
+//admin-keuntungan
+Route::get('/keuntungan', [KeuntunganController::class,'index']);
 
 //-----------------------------------------------------------------------------//
 //--------------------------------- K A R Y A W A N ---------------------------------//

@@ -98,6 +98,9 @@
             <a href="/keuangan">
                 <li class="text-center  bg-[#ca0000] text-2xl mb-2 py-1">Keuangan</li>
             </a>
+            <a href="/keuntungan">
+                <li class="text-center text-2xl mb-2 py-1">Keuntungan</li>
+            </a>
             @endif
 
         </ul>
@@ -119,6 +122,7 @@
                     <th class="border border-black px-2 py-0">No</th>
                     <th class="border border-black px-2 py-0">Keterangan</th>
                     <th class="border border-black px-2 py-0">Transaksi</th>
+                    <th class="border border-black px-2 py-0">Tanggal</th>
                     <th class="border border-black px-2 py-0">Jumlah</th>
                     <th class="border border-black px-2 py-0">Harga Satuan</th>
                     <th class="border border-black px-2 py-0">Total</th>
@@ -134,6 +138,7 @@
                     <td class="border border-black px-2 py-0">{{$no++}}</td>
                     <td class="border border-black px-2 py-0">{{$dt->keterangan}}</td>
                     <td class="border border-black px-2 py-0">{{$dt->transaksi}}</td>
+                    <td class="border border-black px-2 py-0">{{$dt->tanggal}}</td>
                     <td class="border border-black px-2 py-0">{{$dt->jumlah_transaksi}}</td>
                     <td class="border border-black px-2 py-0">Rp{{number_format($dt->harga_satuan)}}</td>
                     <td class="border border-black px-2 py-0">Rp{{number_format($dt->total_transaksi)}}</td>

@@ -23,6 +23,7 @@ class KeuanganController extends Controller
         Keuangan::create([
             'keterangan' => $request->keterangan,
             'transaksi' => $request->transaksi,
+            'tanggal' => $request->tanggal,
             'jumlah_transaksi' => $request->jumlah_transaksi,
             'harga_satuan' => $request->harga_satuan,
             'total_transaksi' => intval($request->jumlah_transaksi) * intval($request->harga_satuan)

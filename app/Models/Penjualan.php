@@ -16,6 +16,7 @@ class Penjualan extends Model
         'barang_id',
         'karyawan_id',
         'pelanggan_id',
+        'tanggal',
         'jumlah_barang',
         'harga_barang',
         'total_penjualan',

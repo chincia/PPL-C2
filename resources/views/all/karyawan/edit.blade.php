@@ -136,6 +136,9 @@
                         <option {{ ($data->status) == 'aktif' ? 'selected' : '' }} value="aktif">Aktif</option>
                         <option {{ ($data->status) == 'nonaktif' ? 'selected' : '' }} value="nonaktif">Non-Aktif</option>
                     </select></div>
+                <div class="text-center">
+                    <a href="/karyawan" class="bg-[#fbbf24] px-10 rounded-full text-white">Cancel</a>
+                </div>
                 <div class="text-center"><button type="submit" class="bg-[#ca0000] px-10 rounded-full text-white">Simpan</button></div>
             </div>
         </form>

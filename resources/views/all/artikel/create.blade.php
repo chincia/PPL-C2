@@ -128,6 +128,9 @@
                     </select>
                 </div>
                 <div><textarea name="deskripsi" id="" rows="5" placeholder="Deskripsi" class="w-full border border-black rounded-lg p-2"></textarea></div>
+                <div class="text-center">
+                    <a href="/artikel" class="bg-[#fbbf24] px-10 rounded-full text-white">Cancel</a>
+                </div>
                 <div class="text-center"><button type="submit" class="bg-[#ca0000] px-10 rounded-full text-white">Simpan</button></div>
             </div>
         </form>

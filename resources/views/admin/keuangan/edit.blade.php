@@ -130,6 +130,9 @@
                 
                 <div><label class="form-label"><b>Harga Satuan</b></label><input type="number" placeholder="Harga Satuan" class="w-full bg-transparent border-b border-black py-2" name="harga_satuan" value="{{$data->harga_satuan}}" required></div>
                 
+                <div class="text-center">
+                    <a href="/keuangan" class="bg-[#fbbf24] px-10 rounded-full text-white">Cancel</a>
+                </div>
                 <div class="text-center"><button type="submit" class="bg-[#ca0000] px-10 rounded-full text-white">Simpan</button></div>
             </div>
         </form>

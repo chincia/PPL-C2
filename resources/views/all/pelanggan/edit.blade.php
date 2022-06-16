@@ -116,6 +116,9 @@
                 <div><input type="text" placeholder="Nama" class="w-full bg-transparent border-b border-black py-2" name="nama" value="{{$data->nama_pelanggan}}"></div>
                 <div><input type="text" placeholder="No HP" class="w-full bg-transparent border-b border-black py-2" name="no_hp" value="{{$data->no_hp}}"></div>
                 <div><textarea name="alamat" id="" rows="3" placeholder="Alamat" class="w-full border border-black rounded-lg p-2">{{$data->alamat}}</textarea></div>
+                <div class="text-center">
+                    <a href="/pelanggan" class="bg-[#fbbf24] px-10 rounded-full text-white">Cancel</a>
+                </div>
                 <div class="text-center"><button type="submit" class="bg-[#ca0000] px-10 rounded-full text-white">Simpan</button></div>
             </div>
         </form>

@@ -144,6 +144,9 @@
                         <option value="nonaktif">Non-Aktif</option>
                     </select>
                 </div>
+                <div class="text-center">
+                    <a href="/karyawan" class="bg-[#fbbf24] px-10 rounded-full text-white">Cancel</a>
+                </div>
                 <div class="text-center"><button type="submit" class="bg-[#ca0000] px-10 rounded-full text-white">Simpan</button></div>
             </div>
         </form>

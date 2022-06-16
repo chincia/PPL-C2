@@ -119,6 +119,9 @@
                 <div><input type="text" placeholder="No HP" class="w-full bg-transparent border-b border-black py-2" name="no_hp"></div>
                 <div><input type="number" placeholder="Tahun Berdiri" class="w-full bg-transparent border-b border-black py-2" name="tahun_berdiri"></div>
                 <div><textarea name="deskripsi" id="" rows="3" placeholder="Deskripsi" class="w-full border border-black rounded-lg p-2"></textarea></div>
+                <div class="text-center">
+                    <a href="/profil_toko" class="bg-[#fbbf24] px-10 rounded-full text-white">Cancel</a>
+                </div>
                 <div class="text-center"><button type="submit" class="bg-[#ca0000] px-10 rounded-full text-white">Simpan</button></div>
             </div>
         </form>

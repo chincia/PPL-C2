@@ -121,6 +121,9 @@
                 <div><input type="number" placeholder="Stok" class="w-full bg-transparent border-b border-black py-2" name="stok_barang"></div>
                 <div><textarea name="deskripsi_barang" id="" rows="3" placeholder="Deskripsi" class="w-full border border-black rounded-lg p-2"></textarea></div>
                 <div><input type="file" accept="images/*" placeholder="Foto" class="w-full bg-transparent border-b border-black py-2" name="foto_barang"></div>
+                <div class="text-center">
+                    <a href="/barang" class="bg-[#fbbf24] px-10 rounded-full text-white">Cancel</a>
+                </div>
                 <div class="text-center"><button type="submit" class="bg-[#ca0000] px-10 rounded-full text-white">Simpan</button></div>
             </div>
         </form>

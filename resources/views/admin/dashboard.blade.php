@@ -7,6 +7,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Siles - ADMIN</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="sweetalert2.min.js"></script>
+    <link rel="stylesheet" href="sweetalert2.min.css">
     <style type="text/tailwindcss">
         @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
         * {cursor: url(https://cur.cursors-4u.net/cursors/cur-2/cur117.cur), auto !important;}
@@ -111,7 +114,7 @@
         </ul>
     </div>
     <div id="grid4" class="px-10 py-8">
-        <h1 class="text-4xl font-medium text-center" style="color:red">SELAMAT DATANG, ADMIN!</h1><br><br>
+        <h1 class="text-4xl font-medium text-center" style="color:red">SELAMAT DATANG {{ Auth::user()->nama }} !</h1><br><br>
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-2 gap-4">
             <div class="w-[30rem] bg-white p-3 rounded-lg">
                 <p style="font-size:20px;" class="text-center"><b>Mini Rekap Keuangan</b></p><br>
@@ -166,5 +169,11 @@
         </div>
     </div>
 </body>
+
+<script>
+    @if(Session::has('success'))
+    swal.fire("{{ Session::get('success') }}")
+    @endif
+</script>
 
 </html>

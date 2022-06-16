@@ -26,13 +26,21 @@ class BarangController extends Controller
 
     public function insert(Request $request)
     {
+        
+        if ($request->nama_barang == null || $request->harga_barang == null || $request->stok_barang == null || $request->deskripsi_barang == null){
+            return redirect('/barang/create')->with("error","Data tidak boleh kosong");
+        }
+        $request->validate([
+            "nama_barang" => ["required", "unique:Barang,nama_barang"],
+        ]);
         $data = Barang::create($request->all());
+        
         if ($request->hasFile('foto_barang')) {
             $request->file('foto_barang')->move('foto-barang/', $request->file('foto_barang')->getClientOriginalName());
             $data->foto_barang = $request->file('foto_barang')->getClientOriginalName();
             $data->save();
         }
-        return redirect('barang');
+        return redirect('barang')->with("success","Data berhasil ditambah");
     }
 
     public function detail($id)
@@ -72,6 +80,6 @@ class BarangController extends Controller
         }
         $ambil->update($data);
 
-        return redirect('/barang');
+        return redirect('/barang')->with("success","Data berhasil diubah");
     }
 }

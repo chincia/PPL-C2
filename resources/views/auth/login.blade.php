@@ -64,6 +64,10 @@
     @if(Session::has('error'))
     swal.fire("{{ Session::get('error') }}")
     @endif
+
+    @if(Session::has('success'))
+    swal.fire("{{ Session::get('success') }}")
+    @endif
 </script>
 
 </html>

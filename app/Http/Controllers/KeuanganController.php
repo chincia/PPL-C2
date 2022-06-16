@@ -20,6 +20,9 @@ class KeuanganController extends Controller
 
     public function insert(Request $request)
     {
+        if ($request->transaksi == null || $request->tanggal == null || $request->jumlah_transaksi == null || $request->harga_satuan == null){
+            return redirect('/keuangan/create')->with("error","Data tidak boleh kosong");
+        }
         Keuangan::create([
             'keterangan' => $request->keterangan,
             'transaksi' => $request->transaksi,
@@ -29,7 +32,7 @@ class KeuanganController extends Controller
             'total_transaksi' => intval($request->jumlah_transaksi) * intval($request->harga_satuan)
         ]);
 
-        return redirect('/keuangan');
+        return redirect('/keuangan')->with("success","Data berhasil ditambah");
     }
 
     public function edit($id)
@@ -47,6 +50,6 @@ class KeuanganController extends Controller
             'harga_satuan' => $request->harga_satuan,
             'total_transaksi' => intval($request->jumlah_transaksi) * intval($request->harga_satuan)
         ]);
-        return redirect('/keuangan');
+        return redirect('/keuangan')->with("success","Data berhasil diubah");
     }
 }

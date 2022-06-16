@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Siles - ARTIKEL</title>
+    <title>Siles - Tambah BARANG</title>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="sweetalert2.min.js"></script>
+    <link rel="stylesheet" href="sweetalert2.min.css">
     <script src="https://cdn.tailwindcss.com"></script>
     <style type="text/tailwindcss">
         @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
@@ -48,7 +50,6 @@
         }
     </style>
 </head>
-
 <body>
     <div id="grid1" class="grid grid-cols-1 place-items-center">
         <h1 class="font-bold text-4xl text-white">PENDATAAN</h1>
@@ -86,10 +87,10 @@
                 <li class="text-center text-2xl mb-2 py-1">Pelanggan</li>
             </a>
             <a href="/artikel">
-                <li class="text-center text-2xl bg-[#ca0000] mb-2 py-1">Artikel</li>
+                <li class="text-center text-2xl mb-2 py-1">Artikel</li>
             </a>
             <a href="/barang">
-                <li class="text-center text-2xl mb-2 py-1">Barang</li>
+                <li class="text-center text-2xl bg-[#ca0000] mb-2 py-1">Barang</li>
             </a>
             <a href="/penjualan">
                 <li class="text-center text-2xl mb-2 py-1">Penjualan</li>
@@ -109,37 +110,30 @@
                 <li class="text-center text-2xl mb-2 py-1">Logout</li>
             </a>
         </ul>
-    </div>    <div id="grid4" class="px-10 py-8">
-        <h1 class="text-center text-3xl mb-8">DATA ARTIKEL</h1>
-        <table class="table-auto w-full bg-white">
-            <thead>
-                <tr>
-                    <th class="border border-black px-2 py-0">No</th>
-                    <th class="border border-black px-2 py-0">Nama Barang</th>
-                    <th class="border border-black px-2 py-0">Deskripsi</th>
-
-                    <th class="border border-black px-2 py-0">Action</th>
-                </tr>
-            </thead>
-            <tbody>
-                @php
-                $no = 1;
-                @endphp
-                @foreach($data as $dt)
-                <tr>
-                    <td class="border border-black px-2 py-0">{{$no++}}</td>
-                    <td class="border border-black px-2 py-0">{{$dt->nama_barang}}</td>
-                    <td class="border border-black px-2 py-0">{{$dt->deskripsi}}</td>
-                    <td class="border border-black px-2 py-0">
-                        <a href="/artikel/edit/{{$dt->id}}" class="text-white px-2 rounded-full bg-[#ca0000] font-bold">Ubah</a>
-                        <a href="/artikel/detail/{{$dt->id}}" class="text-white px-2 rounded-full bg-[#ca0000] font-bold">Detail</a>
-                    </td>
-                </tr>
-                @endforeach
-            </tbody>
-        </table>
-        <a href="/artikel/create" class="bg-[#ca0000] px-10 rounded-full text-white text-xl absolute left-1/2 -translate-x-1/2 bottom-4">Tambah</a>
+    </div>
+    <div id="grid4" class="px-10 py-8">
+        <form action="/barang/insert" method="post" enctype="multipart/form-data">
+            @csrf
+            <div class="grid grid-cols-1 text-2xl gap-2">
+                <div class="text-3xl text-center">DATA BARANG</div>
+                <div><input type="text" placeholder="Nama Barang" class="w-full bg-transparent border-b border-black py-2" name="nama_barang"></div>
+                <div><input type="number" placeholder="Harga" class="w-full bg-transparent border-b border-black py-2" name="harga_barang"></div>
+                <div><input type="number" placeholder="Stok" class="w-full bg-transparent border-b border-black py-2" name="stok_barang"></div>
+                <div><textarea name="deskripsi_barang" id="" rows="3" placeholder="Deskripsi" class="w-full border border-black rounded-lg p-2"></textarea></div>
+                <div><input type="file" accept="images/*" placeholder="Foto" class="w-full bg-transparent border-b border-black py-2" name="foto_barang"></div>
+                <div class="text-center"><button type="submit" class="bg-[#ca0000] px-10 rounded-full text-white">Simpan</button></div>
+            </div>
+        </form>
     </div>
 </body>
+<script>
+    @if(Session::has('error'))
+    swal.fire("{{ Session::get('error') }}")
+    @endif
+    
+    @error("nama_barang")
+    swal.fire("Data sudah tersedia")
+    @endif
+</script>
 
 </html>

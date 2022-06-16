@@ -28,6 +28,9 @@ class PenjualanController extends Controller
 
     public function insert(Request $request)
     {
+        if ($request->tanggal == null || $request->jumlah_barang == null){
+            return redirect('/penjualan/create')->with("error","Data tidak boleh kosong");
+        }
         $harga = Barang::select('id','harga_barang')->where('id',$request->barang_id)->first();
         $harga = $harga['harga_barang'];
         Penjualan::create([
@@ -49,7 +52,7 @@ class PenjualanController extends Controller
             'total_transaksi' => intval($request->jumlah_barang)*intval($harga)
         ]);
 
-        return redirect('/penjualan');
+        return redirect('/penjualan')->with("success","Data berhasil ditambah");
     }
 
     public function edit($id)
@@ -81,6 +84,6 @@ class PenjualanController extends Controller
             'total_transaksi' => intval($request->jumlah_barang)*intval($harga)
         ]);
 
-        return redirect('/penjualan');
+        return redirect('/penjualan')->with("success","Data berhasil diubah");
     }
 }

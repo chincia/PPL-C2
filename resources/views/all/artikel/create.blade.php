@@ -6,6 +6,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Siles - Buat ARTIKEL</title>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="sweetalert2.min.js"></script>
+    <link rel="stylesheet" href="sweetalert2.min.css">
     <script src="https://cdn.tailwindcss.com"></script>
     <style type="text/tailwindcss">
         @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
@@ -117,7 +120,7 @@
                 <div class="text-3xl text-center">DATA ARTIKEL</div>
                 <div>
                     <label class="form-label">Nama Barang</label>
-                    <select class="form-select w-full bg-transparent border-b border-black py-2" name="barang_id" required>
+                    <select class="form-select w-full bg-transparent border-b border-black py-2" name="barang_id">
                         <option value="">Pilih Nama Barang---</option>
                         @foreach($barang as $item)
                         <option value="{{$item->id}}">{{$item->nama_barang}}</option>
@@ -130,5 +133,15 @@
         </form>
     </div>
 </body>
+
+<script>
+    @if(Session::has('error'))
+    swal.fire("{{ Session::get('error') }}")
+    @endif
+
+    @error("nama_barang")
+    swal.fire("Data sudah tersedia")
+    @endif
+</script>
 
 </html>

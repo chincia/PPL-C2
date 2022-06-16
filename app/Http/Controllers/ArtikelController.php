@@ -22,12 +22,21 @@ class ArtikelController extends Controller
 
     public function insert(Request $request)
     {
-        Artikel::create([
-            'barang_id' => $request->barang_id,
-            'deskripsi' => $request->deskripsi,
+        
+        if ($request->barang_id == null || $request->deskripsi == null){
+            return redirect('/artikel/create')->with("error","Data tidak boleh kosong");
+        }else{
+            $request->validate([
+                "nama_barang" => ["required", "unique:Artikel,nama_barang"],
+                "deskripsi" => ["required", "unique:Artikel,deskripsi"],
+            ]);
+            Artikel::create([
+                'barang_id' => $request->barang_id,
+                'deskripsi' => $request->deskripsi,
         ]);
+        
 
-        return redirect('/artikel');
+        return redirect('/artikel')->with("success","Data berhasil ditambah");}
     }
 
     public function detail($id)
@@ -49,6 +58,6 @@ class ArtikelController extends Controller
             'barang_id' => $request->barang_id,
             'deskripsi' => $request->deskripsi
         ]);
-        return redirect('/artikel');
+        return redirect('/artikel')->with("success","Data berhasil diubah");
     }
 }

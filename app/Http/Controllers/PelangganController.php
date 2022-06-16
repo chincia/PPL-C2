@@ -22,13 +22,21 @@ class PelangganController extends Controller
 
     public function insert(Request $request)
     {
+        $request->validate([
+            "nama_pelanggan" => ["required", "unique:Pelanggan,nama_pelanggan"],
+        ]);
+
+        if ($request->nama == null || $request->alamat == null || $request->no_hp == null){
+            return redirect('/pelanggan/create')->with("error","Data tidak boleh kosong");
+        }else{
         Pelanggan::create([
             'nama_pelanggan' => $request->nama,
             'alamat' => $request->alamat,
             'no_hp' => $request->no_hp,
         ]);
 
-        return redirect('pelanggan');
+        return redirect('pelanggan')->with("success","Data berhasil ditambah");
+        }
     }
 
     public function detail($id)
@@ -50,6 +58,6 @@ class PelangganController extends Controller
             'alamat' => $request->alamat,
             'no_hp' => $request->no_hp
         ]);
-        return redirect('pelanggan');
+        return redirect('pelanggan')->with("success","Data berhasil diubah");
     }
 }

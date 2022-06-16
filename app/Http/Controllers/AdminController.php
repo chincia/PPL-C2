@@ -58,7 +58,7 @@ class AdminController extends Controller
                 'tanggal_lahir' => $request->tanggal_lahir,
             ]);
         }
-        return redirect('/admin/admin');
+        return redirect('/admin/admin')->with("success", "Data berhasil diubah");
     }
 
     public function create()

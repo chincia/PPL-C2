@@ -14,7 +14,7 @@ class PenjualanController extends Controller
     public function index()
     {
         
-        $data = Penjualan::join('barang','penjualan.barang_id','=','barang.id')->join('karyawan','penjualan.karyawan_id','=','karyawan.id')->join('pelanggan','penjualan.pelanggan_id','=','pelanggan.id')->select('penjualan.id','barang.nama_barang','karyawan.nama_karyawan','pelanggan.nama_pelanggan','penjualan.total_penjualan','penjualan.tanggal')->get();
+        $data = Penjualan::join('barang','penjualan.barang_id','=','barang.id')->join('karyawan','penjualan.karyawan_id','=','karyawan.id')->join('pelanggan','penjualan.pelanggan_id','=','pelanggan.id')->select('penjualan.id','barang.nama_barang','karyawan.nama_karyawan','pelanggan.nama_pelanggan','penjualan.total_penjualan','penjualan.tanggal')->orderBy('tanggal')->get();
         return view('all.penjualan.index', compact('data'));
     }
 

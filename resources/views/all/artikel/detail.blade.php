@@ -108,11 +108,13 @@
             </a>
         </ul>
     </div>
+    
     <div id="grid4" class="px-10 py-8">
         <div class="grid grid-cols-1">
             <div class="text-center text-3xl">{{$data->nama_barang}}</div>
             <div class="text-justify text-xl">{{$data->deskripsi}}</div>
-        </div>
+        </div> <br>
+        <a href="/artikel" class="text-white px-4 py-2 rounded-full bg-[#ca0000] font-bold">Kembali ke Data artikel</a>
     </div>
 </body>
 </html>

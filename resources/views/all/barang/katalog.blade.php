@@ -115,15 +115,16 @@
         <div class="text-right mb-2">
             <a href="/barang" class="text-white px-2 rounded-full bg-[#ca0000] font-bold">Tampil Data</a>
         </div>
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 justify-items-center">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 justify-items-center">
             @foreach($data as $dt)
             <a href="/barang/detail/{{$dt->id}}">
-                <div class="w-[15rem] bg-white p-3 rounded-lg">
-                    <img src="{{ asset('foto-barang/'.$dt->foto_barang) }}" style="width: 250px; height:250px;" alt="" class="rounded-lg">
+                <div class="w-[20rem] bg-white p-3 rounded-lg">
+                    <img src="{{ asset('foto-barang/'.$dt->foto_barang) }}" style="width: 450px; height:200px;" alt="" class="rounded-lg">
                     <div class="relative">
                         <h1 class="text-xl font-bold">{{$dt->nama_barang}}</h1>
-                        <p class="absolute right-0 top-0">Stok: {{$dt->stok_barang}}</p>
+                        
                     </div>
+                    <p>Stok: {{$dt->stok_barang}} kg</p>
                     <p>Rp{{number_format($dt->harga_barang)}}</p>
                     <p>{{$dt->deskripsi_barang}}</p>
                 </div>

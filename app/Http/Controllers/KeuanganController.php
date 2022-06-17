@@ -9,7 +9,7 @@ class KeuanganController extends Controller
 {
     public function index()
     {
-        $data = Keuangan::all();
+        $data = Keuangan::orderBy('tanggal')->get();
         return view('admin.keuangan.index', compact('data'));
     }
 

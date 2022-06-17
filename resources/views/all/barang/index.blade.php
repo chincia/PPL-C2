@@ -137,7 +137,7 @@
                     <td class="border border-black px-2 py-0">{{$no++}}</td>
                     <td class="border border-black px-2 py-0">{{$dt->nama_barang}}</td>
                     <td class="border border-black px-2 py-0">Rp{{number_format($dt->harga_barang)}}</td>
-                    <td class="border border-black px-2 py-0">{{$dt->stok_barang}}</td>
+                    <td class="border border-black px-2 py-0">{{$dt->stok_barang}} kg</td>
                     <td class="border border-black px-2 py-0">
                         <a href="/barang/edit/{{$dt->id}}" class="text-white px-2 rounded-full bg-[#ca0000] font-bold">Ubah</a>
                         <a href="/barang/detail/{{$dt->id}}" class="text-white px-2 rounded-full bg-[#ca0000] font-bold">Detail</a>

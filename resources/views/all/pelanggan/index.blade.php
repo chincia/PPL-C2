@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Siles - Tambah PENJUALAN</title>
+    <title>Siles - PELANGGAN</title>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="sweetalert2.min.js"></script>
     <link rel="stylesheet" href="sweetalert2.min.css">
@@ -66,12 +66,12 @@
         <ul class="text-white mt-4 px-2">
             @if(Auth::user()->role_id == 1)
             <a href="/admin/dashboard">
-                <li class="text-center text-2xl mb-2 py-1">Dashboard</li>
+                <li class="text-center text-2xl  mb-2 py-1">Dashboard</li>
             </a>
             @endif
             @if(Auth::user()->role_id == 2)
             <a href="/karyawan/dashboard">
-                <li class="text-center text-2xl mb-2 py-1">Dashboard</li>
+                <li class="text-center text-2xl  mb-2 py-1">Dashboard</li>
             </a>
             @endif
             <a href="/profil_toko">
@@ -86,7 +86,7 @@
                 <li class="text-center text-2xl mb-2 py-1">Karyawan</li>
             </a>
             <a href="/pelanggan">
-                <li class="text-center text-2xl mb-2 py-1">Pelanggan</li>
+                <li class="text-center text-2xl bg-[#ca0000] mb-2 py-1">Pelanggan</li>
             </a>
             <a href="/artikel">
                 <li class="text-center text-2xl mb-2 py-1">Artikel</li>
@@ -95,7 +95,7 @@
                 <li class="text-center text-2xl mb-2 py-1">Barang</li>
             </a>
             <a href="/penjualan">
-                <li class="text-center  bg-[#ca0000] text-2xl mb-2 py-1">Penjualan</li>
+                <li class="text-center text-2xl mb-2 py-1">Penjualan</li>
             </a>
             @if(Auth::user()->role_id == 1)
             <a href="/keuangan">
@@ -111,51 +111,44 @@
                 <li class="text-center text-2xl mb-2 py-1">Logout</li>
             </a>
         </ul>
-    </div>
-    <div id="grid4" class="px-10 py-8">
-        <form action="/penjualan/insert" method="post">
-            @csrf
-            <div class="grid grid-cols-1 text-2xl gap-2">
-                <div class="text-3xl text-center">DATA PELANGGAN</div>
-                <div>
-                    <label class="form-label">Nama Barang</label>
-                    <select class="form-select w-full bg-transparent border-b border-black py-2" name="barang_id" required>
-                        <option value="">Pilih Nama Barang---</option>
-                        @foreach($barang as $item)
-                        <option value="{{$item->id}}">{{$item->nama_barang}}</option>
-                        @endforeach
-                    </select><br>
-                    <label class="form-label">Nama Karyawan</label>
-                    <select class="form-select w-full bg-transparent border-b border-black py-2" name="karyawan_id" required>
-                        <option value="">Pilih Nama Karyawan---</option>
-                        @foreach($karyawan as $item2)
-                        <option value="{{$item2->id}}">{{$item2->nama_karyawan}}</option>
-                        @endforeach
-                    </select><br>
-                    <label class="form-label">Nama Pelanggan</label>
-                    <select class="form-select w-full bg-transparent border-b border-black py-2" name="pelanggan_id" required>
-                        <option value="">Pilih Nama Pelanggan---</option>
-                        @foreach($pelanggan as $item3)
-                        <option value="{{$item3->id}}">{{$item3->nama_pelanggan}}</option>
-                        @endforeach
-                    </select><br>
-                    <div><input type="date" placeholder="Tanggal" class="w-full bg-transparent border-b border-black py-2" name="tanggal"></div>
-                    <div><input type="number" placeholder="Jumlah" class="w-full bg-transparent border-b border-black py-2" name="jumlah_barang"></div>
-                </div>
-                <div>
-
-                </div>
-                <div>
-                </div>
-                <div class="text-center"><button type="submit" class="bg-[#ca0000] px-10 rounded-full text-white">Simpan</button></div>
-            </div>
-        </form>
+    </div>    <div id="grid4" class="px-10 py-8">
+        <h1 class="text-center text-3xl mb-8">DATA PELANGGAN</h1>
+        <table class="table-auto w-full bg-white">
+            <thead>
+                <tr>
+                    <th class="border border-black px-2 py-0">No</th>
+                    <th class="border border-black px-2 py-0">Nama</th>
+                    <th class="border border-black px-2 py-0">No HP</th>
+                    <th class="border border-black px-2 py-0">Alamat</th>
+                    <th class="border border-black px-2 py-0">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                @php
+                $no = 1;
+                @endphp
+                @foreach($data as $dt)
+                <tr>
+                    <td class="border border-black px-2 py-0">{{$no++}}</td>
+                    <td class="border border-black px-2 py-0">{{$dt->nama_pelanggan}}</td>
+                    <td class="border border-black px-2 py-0">{{$dt->no_hp}}</td>
+                    <td class="border border-black px-2 py-0">{{$dt->alamat}}</td>
+                    <td class="border border-black px-2 py-0">
+                        <a href="/pelanggan/detail/{{$dt->id}}" class="text-white px-2 rounded-full bg-[#ca0000] font-bold">Detail</a>
+                        <a href="/pelanggan/edit/{{$dt->id}}" class="text-white px-2 rounded-full bg-[#ca0000] font-bold">Edit</a>
+                    </td>
+                </tr>
+                @endforeach
+            </tbody>
+        </table>
+        @if(Auth::user()->role_id == 1)
+        <a href="/pelanggan/create" class="bg-[#ca0000] px-10 rounded-full text-white text-xl absolute left-1/2 -translate-x-1/2 bottom-4">Tambah</a>
+        @endif
     </div>
 </body>
-
 <script>
-    @if(Session::has('error'))
-    swal.fire("{{ Session::get('error') }}")
+    @if(Session::has('success'))
+    swal.fire("{{ Session::get('success') }}")
     @endif
 </script>
 

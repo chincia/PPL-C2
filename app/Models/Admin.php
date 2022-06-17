@@ -20,6 +20,7 @@ class Admin extends Model
         'tanggal_lahir',
         'username',
         'password',
+        'konfirmasi_password',
         'deleted_at'
     ];
 }

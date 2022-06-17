@@ -110,7 +110,7 @@
         </ul>
     </div>
     <div id="grid4" class="px-10 py-8">
-        <h1 class="text-4xl font-medium">SELAMAT DATANG,<br>{{ Auth::user()->nama }}!</h1>
+        <h1 class="text-4xl font-medium">SELAMAT DATANG,<br>KARYAWAN!</h1>
     </div>
 </body>
 

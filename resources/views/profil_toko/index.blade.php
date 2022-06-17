@@ -1,10 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Siles - Ubah Profil Toko</title>
+    <title>Siles - Profil Toko</title>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="sweetalert2.min.js"></script>
+    <link rel="stylesheet" href="sweetalert2.min.css">
     <script src="https://cdn.tailwindcss.com"></script>
     <style type="text/tailwindcss">
         @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
@@ -47,6 +51,7 @@
         }
     </style>
 </head>
+
 <body>
     <div id="grid1" class="grid grid-cols-1 place-items-center">
         <h1 class="font-bold text-4xl text-white">PENDATAAN</h1>
@@ -99,7 +104,7 @@
             <a href="/keuntungan">
                 <li class="text-center text-2xl mb-2 py-1">Keuntungan</li>
             </a>
-            @endif
+            @endif            
         </ul>
         <ul class="text-white px-2 absolute w-full bottom-2">
             <a href="/logout">
@@ -108,20 +113,31 @@
         </ul>
     </div>
     <div id="grid4" class="px-10 py-8">
-        <form action="/profil_toko/update" method="post">
-            @csrf
-            <div class="grid grid-cols-1 text-2xl gap-2">
-                <div class="text-3xl text-center">DATA PROFILE PEMILIK</div>
-                <div><input type="text" placeholder="Nama Pemilik" class="w-full bg-transparent border-b border-black py-2" name="nama_pemilik" value="{{$data->nama_pemilik}}"></div>
-                <div><input type="text" placeholder="No HP" class="w-full bg-transparent border-b border-black py-2" name="no_hp" value="{{$data->no_hp}}"></div>
-                <div><input type="number" placeholder="Tahun Berdiri" class="w-full bg-transparent border-b border-black py-2" name="tahun_berdiri" value="{{$data->tahun_berdiri}}"></div>
-                <div><textarea name="deskripsi" id="" rows="3" placeholder="Deskripsi" class="w-full border border-black rounded-lg p-2">{{$data->deskripsi}}</textarea></div>
-                <div class="text-center">
-                    <a href="/profil_toko" class="bg-[#fbbf24] px-10 rounded-full text-white">Cancel</a>
-                </div>
-                <div class="text-center"><button type="submit" class="bg-[#ca0000] px-10 rounded-full text-white">Simpan</button></div>
-            </div>
-        </form>
+        @if(isset($data))
+        <div class="text-center text-3xl">TOKO LESTARI</div>
+        <div class="text-center text-lg mb-6">sejak {{$data->tahun_berdiri}}</div>
+        <div class="text-xl">Pemilik : {{$data->nama_pemilik}}</div>
+        <div class="text-xl mb-6">No HP : {{$data->no_hp}}</div>
+        <div class="text-justify text-xl">{{$data->deskripsi}}</div>
+        @if(Auth::user()->role_id == 1)
+        <div class="text-center">
+            <a href="/profil_toko/edit" class="bg-[#ca0000] px-10 rounded-full text-white text-xl absolute left-1/2 -translate-x-1/2 bottom-4">Ubah</a>
+        </div>
+        @endif
+        @endif
+        @if(!isset($data))
+        <h1 class="text-center text-4xl mt-32 font-bold">Profile toko belum dibuat!</h1>
+        @if(Auth::user()->role_id == 1)
+        <a href="/profil_toko/create" class="bg-[#ca0000] px-10 rounded-full text-white text-xl absolute left-1/2 -translate-x-1/2 bottom-4">Tambah</a>
+        @endif
+        @endif
     </div>
 </body>
+
+<script>
+    @if(Session::has('success'))
+    swal.fire("{{ Session::get('success') }}")
+    @endif
+</script>
+
 </html>

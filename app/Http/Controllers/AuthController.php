@@ -43,10 +43,7 @@ class AuthController extends Controller
 
     public function post_register(Request $request)
     {
-        $request->validate([
-            "email" => ["required", "unique:Admin,email"],
-            "username" => ["required", "unique:Admin,username"]
-        ]);
+        
 
         $password = $request->password;
         $konfirmasi_password = $request->konfirmasi_password;
@@ -54,6 +51,10 @@ class AuthController extends Controller
             return redirect('/register')->withError("Data tidak boleh kosong");
         }
         elseif($password == $konfirmasi_password){
+            $request->validate([
+                "email" => ["required", "unique:Admin,email"],
+                "username" => ["required", "unique:Admin,username"]
+            ]);
             User::create([
                 'role_id' => 1,
                 'nama' => $request->nama,

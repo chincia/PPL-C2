@@ -133,10 +133,6 @@
     @if(Session::has('error'))
     swal.fire("{{ Session::get('error') }}")
     @endif
-
-    @error("nama_pelanggan")
-    swal.fire("Data telah terdaftar")
-    @endif
 </script>
 
 </html>

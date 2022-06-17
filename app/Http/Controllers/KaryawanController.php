@@ -21,9 +21,7 @@ class KaryawanController extends Controller
 
     public function insert(Request $request)
     {
-        $request->validate([
-            "username" => ["required", "unique:Admin,username", "unique:Karyawan,username"],
-        ]);
+        
 
         $password = $request->password;
         $konfirmasi_password = $request->konfirmasi_password;
@@ -32,7 +30,9 @@ class KaryawanController extends Controller
             return redirect('/karyawan/create')->with("error","Data tidak boleh kosong");
         }
         elseif($password == $konfirmasi_password){
-
+            $request->validate([
+                "username" => ["required", "unique:Admin,username", "unique:Karyawan,username"],
+            ]);
             User::create([
                 'role_id' => 2,
                 'nama' => $request->nama,

@@ -27,7 +27,6 @@ class ArtikelController extends Controller
             return redirect('/artikel/create')->with("error","Data tidak boleh kosong");
         }else{
             $request->validate([
-                "nama_barang" => ["required", "unique:Artikel,nama_barang"],
                 "deskripsi" => ["required", "unique:Artikel,deskripsi"],
             ]);
             Artikel::create([

@@ -22,9 +22,6 @@ class PelangganController extends Controller
 
     public function insert(Request $request)
     {
-        $request->validate([
-            "nama_pelanggan" => ["required", "unique:Pelanggan,nama_pelanggan"],
-        ]);
 
         if ($request->nama == null || $request->alamat == null || $request->no_hp == null){
             return redirect('/pelanggan/create')->with("error","Data tidak boleh kosong");

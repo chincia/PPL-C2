@@ -142,7 +142,7 @@
     swal.fire("{{ Session::get('error') }}")
     @endif
 
-    @error("nama_barang")
+    @error("deskripsi")
     swal.fire("Data sudah tersedia")
     @endif
 </script>

@@ -20,6 +20,12 @@ class ArtikelController extends Controller
         return view('all.artikel.create', compact('barang'));
     }
 
+    public function artikel()
+    {
+        $data = Artikel::join('barang','artikel.barang_id','=','barang.id')->select('artikel.barang_id','artikel.deskripsi','artikel.id','barang.nama_barang')->get();
+        return view('all.artikel.artikel', compact('data'));
+    }
+
     public function insert(Request $request)
     {
         

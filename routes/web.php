@@ -67,6 +67,7 @@ Route::post('/barang/update/{id}', [BarangController::class, 'update']);
 
 //artikel
 Route::get('/artikel', [ArtikelController::class, 'index']);
+Route::get('/artikel/artikel', [ArtikelController::class, 'artikel']);
 Route::get('/artikel/create', [ArtikelController::class, 'create']);
 Route::post('/artikel/insert', [ArtikelController::class, 'insert']);
 Route::get('/artikel/detail/{id}', [ArtikelController::class, 'detail']);

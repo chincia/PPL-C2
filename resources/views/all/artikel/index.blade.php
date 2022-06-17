@@ -114,6 +114,9 @@
         </ul>
     </div>    <div id="grid4" class="px-10 py-8">
         <h1 class="text-center text-3xl mb-8">DATA ARTIKEL</h1>
+        <div class="text-right mb-6">
+            <a href="/artikel/artikel" class="text-white px-2 rounded-full bg-[#ca0000] font-bold">Tampil Artikel</a>
+        </div>
         <table class="table-auto w-full bg-white">
             <thead>
                 <tr>

@@ -20,7 +20,7 @@ class AuthController extends Controller
         if (Auth::attempt($request->only('username', 'password'))) {
             if (Auth::user()->role_id == '2') {
                 if(Auth::user()->status == 'nonaktif'){
-                    return redirect('/login');
+                    return redirect('/login')->withError("Akun kamu sudah tidak aktif");
                 }else{
                     return redirect('/karyawan/dashboard')->with("success", "Login berhasil");
                 }

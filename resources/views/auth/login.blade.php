@@ -46,9 +46,8 @@
         </div>
     </div>
     <div id="grid2" class="px-10 py-8">
-        <div class="grid grid-cols-2 md:px-10 lg:px-20 xl:px-40">
+        <div class="grid grid-cols-1 md:px-10 lg:px-20 xl:px-40">
             <a href="#" class="w-full text-center bg-[#ca0000] text-white py-2 text-xl rounded-xl">Login</a>
-            <a href="/register" class="w-full text-center bg-[#d74a4c] text-white py-2 text-xl rounded-xl">Registrasi</a>
             <form action="/post_login" method="post" class="col-span-2">
                 @csrf
                 <div class="w-full text-center bg-white rounded-xl grid grid-cols-1 text-xl gap-4 py-20 px-10">

@@ -26,6 +26,12 @@ class ArtikelController extends Controller
         return view('all.artikel.artikel', compact('data'));
     }
 
+    public function artikelpelanggan()
+    {
+        $data = Artikel::join('barang','artikel.barang_id','=','barang.id')->select('artikel.barang_id','artikel.deskripsi','artikel.id','barang.nama_barang')->get();
+        return view('all.artikel.pelanggan', compact('data'));
+    }
+
     public function insert(Request $request)
     {
         
@@ -48,6 +54,12 @@ class ArtikelController extends Controller
     {
         $data = Artikel::join('barang','artikel.barang_id','=','barang.id')->select('artikel.barang_id','artikel.deskripsi','artikel.id','barang.nama_barang','barang.foto_barang')->where('artikel.id',$id)->first();
         return view('all.artikel.detail', compact('data'));
+    }
+
+    public function detailpelanggan($id)
+    {
+        $data = Artikel::join('barang','artikel.barang_id','=','barang.id')->select('artikel.barang_id','artikel.deskripsi','artikel.id','barang.nama_barang','barang.foto_barang')->where('artikel.id',$id)->first();
+        return view('all.artikel.pelanggandetail', compact('data'));
     }
 
     public function edit($id)

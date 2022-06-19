@@ -14,6 +14,12 @@ class ProfilTokoController extends Controller
         return view('profil_toko.index',compact('data'));
     }
 
+    public function indexpelanggan()
+    {
+        $data = ProfilToko::first();
+        return view('profil_toko.pelanggan',compact('data'));
+    }
+
     public function create()
     {
         return view('profil_toko.create');

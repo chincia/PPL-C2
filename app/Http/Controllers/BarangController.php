@@ -19,6 +19,12 @@ class BarangController extends Controller
         return view('all.barang.katalog', compact('data'));
     }
 
+    public function katalogpelanggan()
+    {
+        $data = Barang::all();
+        return view('all.barang.pelanggan', compact('data'));
+    }
+
     public function create()
     {
         return view('all.barang.create');
@@ -47,6 +53,12 @@ class BarangController extends Controller
     {
         $data = Barang::where('id',$id)->first();
         return view('all.barang.detail', compact('data'));
+    }
+
+    public function detailpelanggan($id)
+    {
+        $data = Barang::where('id',$id)->first();
+        return view('all.barang.pelanggandetail', compact('data'));
     }
 
     public function edit($id)

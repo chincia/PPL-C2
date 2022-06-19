@@ -41,7 +41,7 @@
 <body>
     <div id="grid1" class="grid grid-cols-1 place-items-center px-4">
         <div class="text-right w-full text-white">
-            <h1 class="text-5xl">SILES</h1>
+            <h1 class="text-5xl"><a href="/"> SILES</a></h1>
             <h2 class="text-2xl">Sistem Informasi Pendataan Toko Lestari</h2>
         </div>
     </div>

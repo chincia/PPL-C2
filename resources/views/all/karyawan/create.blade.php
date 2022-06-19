@@ -122,7 +122,7 @@
                 <div>
                     <input type="text" placeholder="Nomor HP" class="w-full bg-transparent border-b border-black py-2" name="no_hp">
                 </div>
-                <div><input type="date" placeholder="Tanggal Lahir" class="w-full bg-transparent border-b border-black py-2" name="tanggal_lahir"></div>
+                <div><input type="date" placeholder="Tanggal Lahir" class="w-full bg-transparent border-b border-black py-2" name="tanggal_lahir" max="2002-01-01"></div>
                 <div class="row">
                     <div class="col-md-6">
                         <div><input type="text" placeholder="Username" class="w-full bg-transparent border-b border-black py-2" name="username"></div>

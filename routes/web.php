@@ -26,7 +26,6 @@ use Illuminate\Support\Facades\Route;
 */
 //--------------------------------- A L L    A C T O R ---------------------------------//
 //auth
-Route::get('/',[AuthController::class, 'login']);
 Route::get('/login',[AuthController::class, 'login']);
 Route::get('/register', [AuthController::class, 'register']);
 Route::post('/post_login', [AuthController::class, 'post_login']);
@@ -34,7 +33,9 @@ Route::post('/post_register', [AuthController::class, 'post_register']);
 Route::get('/logout', [AuthController::class, 'logout']);
 
 //profil_toko
+Route::get('/', [ProfilTokoController::class, 'indexpelanggan']);
 Route::get('/profil_toko', [ProfilTokoController::class, 'index']);
+Route::get('/profil_toko/pelanggan', [ProfilTokoController::class, 'indexpelanggan']);
 Route::get('/profil_toko/create', [ProfilTokoController::class, 'create']);
 Route::post('/profil_toko/insert', [ProfilTokoController::class, 'insert']);
 Route::get('/profil_toko/edit', [ProfilTokoController::class, 'edit']);
@@ -59,15 +60,19 @@ Route::post('/pelanggan/update/{id}', [PelangganController::class, 'update']);
 //barang
 Route::get('/barang', [BarangController::class, 'index']);
 Route::get('/barang/katalog', [BarangController::class, 'katalog']);
+Route::get('/barang/pelanggan', [BarangController::class, 'katalogpelanggan']);
 Route::get('/barang/create', [BarangController::class, 'create']);
 Route::post('/barang/insert', [BarangController::class, 'insert']);
 Route::get('/barang/detail/{id}', [BarangController::class, 'detail']);
+Route::get('/barang/pelanggandetail/{id}', [BarangController::class, 'detailpelanggan']);
 Route::get('/barang/edit/{id}', [BarangController::class, 'edit']);
 Route::post('/barang/update/{id}', [BarangController::class, 'update']);
 
 //artikel
 Route::get('/artikel', [ArtikelController::class, 'index']);
 Route::get('/artikel/artikel', [ArtikelController::class, 'artikel']);
+Route::get('/artikel/pelanggan', [ArtikelController::class, 'artikelpelanggan']);
+Route::get('/artikel/pelanggandetail/{id}', [ArtikelController::class, 'detailpelanggan']);
 Route::get('/artikel/create', [ArtikelController::class, 'create']);
 Route::post('/artikel/insert', [ArtikelController::class, 'insert']);
 Route::get('/artikel/detail/{id}', [ArtikelController::class, 'detail']);

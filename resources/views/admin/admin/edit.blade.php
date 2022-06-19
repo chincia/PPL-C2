@@ -119,7 +119,7 @@
                 
                 <div><input type="email" placeholder="Email" class="w-full bg-transparent border-b border-black py-2" name="email" value="{{$data->email}}" required></div>
                 
-                <div><input type="date" placeholder="Tanggal Lahir" class="w-full bg-transparent border-b border-black py-2" name="tanggal_lahir" value="{{$data->tanggal_lahir}}" max="2004-01-01" required></div>
+                <div><input type="date" placeholder="Tanggal Lahir" class="w-full bg-transparent border-b border-black py-2" name="tanggal_lahir" value="{{$data->tanggal_lahir}}" max="2002-01-01" required></div>
                 
                 <div><input type="text" placeholder="Username" class="w-full bg-transparent border-b border-black py-2" name="username" value="{{$data->username}}" required></div>
                 

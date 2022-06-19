@@ -139,7 +139,7 @@
                         <option value="{{$item3->id}}">{{$item3->nama_pelanggan}}</option>
                         @endforeach
                     </select><br>
-                    <div><input type="date" placeholder="Tanggal" class="w-full bg-transparent border-b border-black py-2" name="tanggal"></div>
+                    <div><input type="date" placeholder="Tanggal" class="w-full bg-transparent border-b border-black py-2" name="tanggal" max="2022-06-22"></div>
                     <div><input type="number" placeholder="Jumlah" class="w-full bg-transparent border-b border-black py-2" name="jumlah_barang"></div>
                 </div>
                 <div>

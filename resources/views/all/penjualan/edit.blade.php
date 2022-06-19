@@ -148,7 +148,7 @@
                         @endif
                         @endforeach
                     </select><br>
-                    <div><input type="date" placeholder="Tanaggal" class="w-full bg-transparent border-b border-black py-2" name="tanggal" value="{{$data->tanggal}}"></div>
+                    <div><input type="date" placeholder="Tanaggal" class="w-full bg-transparent border-b border-black py-2" name="tanggal" value="{{$data->tanggal}}" max="2022-06-22"></div>
                     <div><input type="number" placeholder="Jumlah" class="w-full bg-transparent border-b border-black py-2" name="jumlah_barang" value="{{$data->jumlah_barang}}"></div>
                 </div>
                 <div>

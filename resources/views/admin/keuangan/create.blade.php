@@ -127,7 +127,7 @@
                     </select>
                 </div>
                 <div><input type="text" placeholder="Jenis Transaksi" class="w-full bg-transparent border-b border-black py-2" name="transaksi" ></div>
-                <div><input type="date" placeholder="Tanggal" class="w-full bg-transparent border-b border-black py-2" name="tanggal"></div>
+                <div><input type="date" placeholder="Tanggal" class="w-full bg-transparent border-b border-black py-2" name="tanggal" max="2022-06-20"></div>
                 
                 <div><input type="number" placeholder="Jumlah Transaksi" class="w-full bg-transparent border-b border-black py-2" name="jumlah_transaksi" ></div>
                 
